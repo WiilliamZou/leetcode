@@ -35,8 +35,8 @@ public class Solution {
                     if (i > 0 && j-2 >= 0 && (p.charAt(j-2) == '.' || p.charAt(j-2) == s.charAt(i-1)))
                         dp[i][j] |= dp[i-1][j];
                     // +1 preceding.
-                    if (i > 1 && j > 0 && s.charAt(i-1) == s.charAt(i-2))
-                        dp[i][j] |= dp[i-1][j-1];
+                   //  if (i > 1 && j > 0 && s.charAt(i-1) == s.charAt(i-2))
+                  //      dp[i][j] |= dp[i-1][j-1];
                 } else if (i > 0 && (pChar == '.'|| (s.charAt(i-1) == p.charAt(j-1)))) {
                     dp[i][j] |= dp[i-1][j-1];
                 }

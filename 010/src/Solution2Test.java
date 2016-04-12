@@ -10,19 +10,19 @@ import static org.junit.Assert.*;
 public class Solution2Test {
     @Test
     public void isMatch() throws Exception {
-        Solution2 sol = new Solution2();
+        Solution sol = new Solution();
         assertTrue(sol.isMatch("aa", ".*"));
     }
 
     @Test
     public void isMatch2() throws Exception {
-        Solution2 sol = new Solution2();
+        Solution sol = new Solution();
         assertFalse(sol.isMatch("ab", ".*c"));
     }
 
     @Test
     public void isMatch3() throws Exception {
-        Solution2 sol = new Solution2();
+        Solution sol = new Solution();
         assertFalse(sol.isMatch("aaba", "ab*a*c*a"));
     }
 
