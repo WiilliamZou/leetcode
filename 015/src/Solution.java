@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -16,7 +18,28 @@ import java.util.List;
  */
 public class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
-
-        return null;
+        List<List<Integer>> result = new ArrayList<>();
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            int target = nums[i] * (-1);
+            int left = i+1;
+            int right = nums.length-1;
+            while (left < right) {
+                if (nums[left] + nums[right] == target) {
+                    ArrayList<Integer> current = new ArrayList<>();
+                    current.add(i);
+                    current.add(left);
+                    current.add(right);
+                    result.add(current);
+                    left++;
+                    right--;
+                } else if (nums[left] + nums[right] > target) {
+                    right--;
+                } else {
+                    left++;
+                }
+            }
+        }
+        return result;
     }
 }
