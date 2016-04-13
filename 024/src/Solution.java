@@ -9,16 +9,16 @@
 public class Solution {
     public ListNode swapPairs(ListNode head) {
         if (head == null || head.next == null) return head;
-        ListNode result = head.next;
-        ListNode p;
-        ListNode q;
-        p = head;
-        while (p != null && p.next != null) {
-            q = p.next;
-            p.next = q.next;
-            q.next = p;
-            p = p.next;
+        ListNode fakeHead = new ListNode(0);
+        ListNode prev = fakeHead;
+        while (head != null && head.next != null) {
+            prev.next = head.next;
+            head.next = head.next.next;
+            prev.next.next = head;
+            prev = head;
+            head = head.next;
         }
-        return result;
+        return fakeHead.next;
+
     }
 }
