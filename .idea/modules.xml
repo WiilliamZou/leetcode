@@ -14,6 +14,7 @@
       <module fileurl="file://$PROJECT_DIR$/010/010.iml" filepath="$PROJECT_DIR$/010/010.iml" />
       <module fileurl="file://$PROJECT_DIR$/011/011.iml" filepath="$PROJECT_DIR$/011/011.iml" />
       <module fileurl="file://$PROJECT_DIR$/014/014.iml" filepath="$PROJECT_DIR$/014/014.iml" />
+      <module fileurl="file://$PROJECT_DIR$/015/015.iml" filepath="$PROJECT_DIR$/015/015.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcode.iml" filepath="$PROJECT_DIR$/leetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcodeList/leetcodeList.iml" filepath="$PROJECT_DIR$/leetcodeList/leetcodeList.iml" />
     </modules>
