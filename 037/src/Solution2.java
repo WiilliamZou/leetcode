@@ -13,7 +13,7 @@ public class Solution2 {
         if (board[i][j]!='.') return dfs(board,d+1);//prefill number skip
 
         boolean[] flag=new boolean[10];
-        validate(board,i,j,flag);
+        findCandidate(board,i,j,flag);
         for (int k=1; k<=9; k++) {
             if (flag[k]) {
                 board[i][j]=(char)('0'+k);
@@ -23,7 +23,7 @@ public class Solution2 {
         board[i][j]='.'; //if can not solve, in the wrong path, change back to '.' and out
         return false;
     }
-    private void validate(char[][] board, int i, int j, boolean[] flag) {
+    private void findCandidate(char[][] board, int i, int j, boolean[] flag) {
         Arrays.fill(flag,true);
         for (int k=0; k<9; k++) {
             if (board[i][k]!='.') flag[board[i][k]-'0']=false;
