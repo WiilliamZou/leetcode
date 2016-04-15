@@ -18,12 +18,16 @@ public class Solution {
             char[] column = new char[9];
             for (int j = 0; j < board[i].length; j++) {
                 row[j] = board[i][j];
-                row[j] = board[j][i];
+                column[j] = board[j][i];
             }
-            if (!isValidSection(row) || !isValidSection(column))
+            if (!isValidSection(row) || !isValidSection(column))  {
+                System.out.println("i is " + i);
                 return false;
+            }
+
         }
 
+        System.out.println("OK for rows and columns");
         //check sections
         for (int i = 0; i < 9; i++) {
             char[] section = new char[9];
@@ -37,7 +41,7 @@ public class Solution {
         }
         return true;
     }
-    public boolean isValidSection(char[] array) {
+    private boolean isValidSection(char[] array) {
         boolean[] flag = new boolean[10];
         for (char c : array) {
             if (c == '.') continue;
