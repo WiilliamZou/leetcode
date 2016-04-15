@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Created by yunxiaozou on 4/14/16.
  */
@@ -11,7 +13,8 @@ public class Solution2 {
             while(A[j] <= A[i]) j--;           // Find rightmost first larger id j
             swap(A, i, j);                     // Switch i and j
         }
-        reverse(A, i + 1, A.length - 1);       // Reverse the descending sequence
+        //reverse(A, i + 1, A.length - 1);       // Reverse the descending sequence
+        Arrays.sort(A, i+1, A.length);
     }
 
     public void swap(int[] A, int i, int j) {
