@@ -32,6 +32,8 @@
       <module fileurl="file://$PROJECT_DIR$/030/030.iml" filepath="$PROJECT_DIR$/030/030.iml" />
       <module fileurl="file://$PROJECT_DIR$/031/031.iml" filepath="$PROJECT_DIR$/031/031.iml" />
       <module fileurl="file://$PROJECT_DIR$/032/032.iml" filepath="$PROJECT_DIR$/032/032.iml" />
+      <module fileurl="file://$PROJECT_DIR$/033/033.iml" filepath="$PROJECT_DIR$/033/033.iml" />
+      <module fileurl="file://$PROJECT_DIR$/034/034.iml" filepath="$PROJECT_DIR$/034/034.iml" />
       <module fileurl="file://$PROJECT_DIR$/helper/helper.iml" filepath="$PROJECT_DIR$/helper/helper.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcode.iml" filepath="$PROJECT_DIR$/leetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcodeList/leetcodeList.iml" filepath="$PROJECT_DIR$/leetcodeList/leetcodeList.iml" />
