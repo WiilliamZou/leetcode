@@ -1,50 +1,34 @@
+import java.util.Arrays;
 public class Solution {
     public void solveSudoku(char[][] board) {
         dfs(board,0);
     }
-    private void dfs(char[][] board, int k) {
-        if (k == 81)
-            return;
+    private boolean dfs(char[][] board, int k) {
+        if (k == 81) return true;
         int i = k/9, j = k%9;
-        if (board[i][j] != '.') dfs(board, k+1);
-        for (char c = '1'; c <= '9'; c++) {
-            board[i][j] = c;
-            if(validate(board, k)) dfs(board,k+1);
-            board[i][j] = '.';
+        if (board[i][j] != '.') return dfs(board, k+1);
+        boolean[] flag = new boolean[10];
+        findCandidate(board, i, j, flag);
+        for (int index = 1; index <= 9; index++) {
+            if (flag[index]) {
+                board[i][j] = (char)('0' + index);
+                if(dfs(board,k+1)) return true;
+            }
+        }
+        board[i][j] = '.';
+        return false;
+    }
+
+    private void findCandidate(char[][] board, int i, int j, boolean[] flag) {
+        Arrays.fill(flag, true);
+        for (int k = 0; k < 9; k++) {
+            if (board[i][k] != '.') flag[board[i][k] - '0'] = false;
+            if (board[k][j] != '.') flag[board[k][j] - '0'] = false;
+
+            int r = i/3*3 + k/3;
+            int c = j/3*3 + k%3;
+            if (board[r][c] != '.') flag[board[r][c] - '0'] = false;
         }
     }
-    private boolean validate(char[][] board, int k) {
-        boolean[] flag = new boolean[9];
-        int i = k/9, j = k%9;
-        for (int l = 0; l < 9; l++) {
-            if (Character.isDigit(board[i][l])) {
-                if (flag[board[i][l]-'1']) {
-                    return false;
-                }
-                flag[board[i][l]-'1'] = true;
-            }
-        }
-        flag = new boolean[9];
-        for (int l = 0; l < 9; l++) {
-            if (Character.isDigit(board[l][j])) {
-                if (flag[board[l][j]-'1']) {
-                    return false;
-                }
-                flag[board[l][j]-'1'] = true;
-            }
-        }
-        flag = new boolean[9];
-        int is = i - (i%3), js = j - (j%3);
-        for (int l = 0; l < 3; l++) {
-            for (int m = 0; m < 3; m++) {
-                if (Character.isDigit(board[is+l][js+m])) {
-                    if (flag[board[is+l][js+m]-'1']) {
-                        return false;
-                    }
-                    flag[board[is+l][js+m]-'1'] = true;
-                }
-            }
-        }
-        return true;
-    }
+
 }
