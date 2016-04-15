@@ -16,7 +16,7 @@ public class Solution2 {
         int nlen = words.length * gap;
         for (int k = 0; k < gap; k++) {
             HashMap<String, Integer> wordmap = new HashMap<>(map);
-            for (int i = k, j = 0; i < s.length() - nlen + 1 && i + j <= s.length() - gap; ) {
+            for (int i = k, j = 0; i + j <= s.length() - gap; ) {
                 String temp = s.substring(i + j, i + j + gap);
                 if (wordmap.containsKey(temp)) {
                     wordmap.put(temp, wordmap.get(temp) - 1);
