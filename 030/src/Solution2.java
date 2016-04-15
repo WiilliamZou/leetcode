@@ -1,5 +1,6 @@
 /**
  * Created by yunxiaozou on 4/13/16.
+ * seems two pointers.
  */
 
 import java.util.ArrayList;
