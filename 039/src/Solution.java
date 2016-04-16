@@ -22,28 +22,19 @@ import java.util.List;
 public class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
+        List<Integer> current = new ArrayList<>();
         if (candidates == null) return result;
         Arrays.sort(candidates);
-        ArrayList<Integer> current = new ArrayList<>();
-        dfs(candidates,target, 0, current,result);
+        dfs(candidates, result, current, target, 0);
         return result;
     }
 
-    private void dfs(int[] candidates, int target, int index, ArrayList<Integer> current, List<List<Integer>> result) {
-
-        if (index == candidates.length || target < 0) {
-            return;
-        }
-        dfs(candidates, target, index+1, current, result);
-        if (index == 0 || candidates[index] != candidates[index-1]) {
-            current.add(candidates[index]);
-            if (target == 0) {
-                List<Integer> list = new ArrayList<>(current);
-                result.add(list);
-            } else {
-                dfs(candidates, target-candidates[index],index+1, current, result);
-                dfs(candidates, target-candidates[index],index, current, result);
-            }
+    private void dfs(int[] candidates, List<List<Integer>> result, List<Integer> current, int remainder, int from) {
+        if (remainder == 0) {result.add(new ArrayList<>(current)); return;}
+        if (remainder < 0) return;
+        for (int i = from; i < candidates.length; i++) {
+            current.add(candidates[i]);
+            dfs(candidates, result, current, remainder-candidates[i], i);
             current.remove(current.size()-1);
         }
     }
