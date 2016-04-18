@@ -17,6 +17,21 @@
  */
 public class Solution {
     public int jump(int[] nums) {
-        return 0;
+        if (nums == null || nums.length == 0) return 0;
+        int[] dp = new int[nums.length];
+        dp[0] = 1;
+        int pointer = 0;
+        while (pointer < nums.length) {
+            if (dp[pointer] != 0) {
+                int j = nums[pointer] + pointer;
+                for (int i = pointer+1; i < nums.length && i <= j; i++) {
+                    if (dp[i] == 0 || (nums[pointer] + 1 < dp[i])) {
+                        dp[i] = nums[pointer] + 1;
+                    }
+                }
+            }
+            pointer++;
+        }
+        return dp[nums.length-1];
     }
 }
