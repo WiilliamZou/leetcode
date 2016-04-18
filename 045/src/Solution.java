@@ -28,7 +28,7 @@ public class Solution {
             for (int i = l; i <= r; i++) {
                 max = Math.max(i+nums[i], max);
             }
-            l = r;
+            l = r+1;
             r = max;
             step++;
         }
