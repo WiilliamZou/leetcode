@@ -33,7 +33,7 @@ public class Solution2 {
                 max = Math.max(max, l + nums[l]);
             }
 
-            // If we can reach far more in this round, we update
+            // If we can make progress in this round, we update
             // the boundary of current region, and also add a step.
             if (max > r) {
                 l = r;

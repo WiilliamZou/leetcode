@@ -17,21 +17,21 @@
  */
 public class Solution {
     public int jump(int[] nums) {
-        if (nums == null || nums.length == 0) return 0;
-        int[] dp = new int[nums.length];
-        dp[0] = 1;
-        int pointer = 0;
-        while (pointer < nums.length) {
-            if (dp[pointer] != 0) {
-                int j = nums[pointer] + pointer;
-                for (int i = pointer+1; i < nums.length && i <= j; i++) {
-                    if (dp[i] == 0 || (nums[pointer] + 1 < dp[i])) {
-                        dp[i] = nums[pointer] + 1;
-                    }
-                }
+        if (nums == null || nums.length < 2) return 0;
+        int l = 0;
+        int r = nums[l];
+        int step = 1;
+        while (l <= r) {
+            if (r >= nums.length-1)
+                return step;
+            int max = Integer.MIN_VALUE;
+            for (int i = l; i <= r; i++) {
+                max = Math.max(i+nums[i], max);
             }
-            pointer++;
+            l = r;
+            r = max;
+            step++;
         }
-        return dp[nums.length-1];
+        return -1;
     }
 }
