@@ -10,30 +10,26 @@ import java.util.List;
 public class Solution {
     public List<List<Integer>> permuteUnique(int[] nums) {
         List<List<Integer>> result = new ArrayList<>();
-        if (nums == null && nums.length == 0)
-            return result;
-        HashMap<Integer, Integer> numMap = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            numMap.put(nums[i], numMap.getOrDefault(nums[i], 0) + 1);
-        }
         List<Integer> current = new ArrayList<>();
-        dfs(nums, result, current, numMap);
+        if (nums == null || nums.length == 0 ) return result;
+        Arrays.sort(nums);
+        boolean[] used = new boolean[nums.length];
+        dfs(nums, used, result, current);
         return result;
-
     }
 
-    private void dfs(int[] nums, List<List<Integer>> result, List<Integer> current, HashMap<Integer, Integer> numMap) {
-        if (nums.length == current.size()) {
+    private void dfs(int[] nums, boolean[] used, List<List<Integer>> result, List<Integer> current) {
+        if (current.size() == nums.length) {
             result.add(new ArrayList<>(current));
         } else {
-            for (int currentNum : nums) {
-                if (numMap.getOrDefault(currentNum, 0) != 0) {
-                    current.add(currentNum);
-                    numMap.put(currentNum, numMap.getOrDefault(currentNum,0) - 1);
-                    dfs(nums, result, current, numMap);
-                    numMap.put(currentNum, numMap.getOrDefault(currentNum,0) + 1);
-                    current.remove(current.size()-1);
-                }
+            for (int i = 0; i < nums.length; i++) {
+                if (used[i]) continue;
+                if (i > 0 && nums[i] == nums[i-1] && !used[i-1]) continue;
+                used[i] = true;
+                current.add(nums[i]);
+                dfs(nums, used, result, current);
+                used[i] = false;
+                current.remove(current.size()-1);
             }
         }
     }
