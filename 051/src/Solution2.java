@@ -47,16 +47,4 @@ public class Solution2 {
 
 
     }
-
-    public static void main(String[] args) {
-        Solution2 sol2 = new Solution2();
-        List<String[]> list = sol2.solveNQueens(8);
-        for(String[] board : list)
-        {
-            for (String line : board)
-                System.out.println(line);
-            System.out.println();
-        }
-    }
-
 }
