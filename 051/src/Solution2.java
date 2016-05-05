@@ -49,7 +49,7 @@ public class Solution2 {
     }
 
     public static void main(String[] args) {
-        Solution sol2 = new Solution();
+        Solution2 sol2 = new Solution2();
         List<String[]> list = sol2.solveNQueens(8);
         for(String[] board : list)
         {
