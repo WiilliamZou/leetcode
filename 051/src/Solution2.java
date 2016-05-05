@@ -39,9 +39,7 @@ public class Solution2 {
                 else line += ".";
             }
             board[i] = line;
-            System.out.println(line);
         }
-
         result.add(board);
     }
 }
