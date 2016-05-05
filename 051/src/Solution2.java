@@ -43,8 +43,5 @@ public class Solution2 {
         }
 
         result.add(board);
-        System.out.println("--------------------");
-
-
     }
 }
