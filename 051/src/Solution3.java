@@ -1,33 +1,41 @@
-public class Solution3 {
-    private int count = 0;
-    public int totalNQueens(int n) {
-        if (n <= 0) {
-            return 0;
-        }
-        int[] board = new int[n];
-        for (int i = 0; i < n; i++) {
-            board[i] = -1;
-        }
-        boolean[] hashRows = new boolean[n];
-        boolean[] hashMajor = new boolean[2 * n - 1];
-        boolean[] hashMinor = new boolean[2 * n - 1];
-        search(board, 0, hashRows, hashMinor, hashMajor);
-        return count;
-    }
+import java.util.ArrayList;
+import java.util.List;
 
-    private void search(int[] board, int row, boolean[] hashRows, boolean[] hashMinor, boolean[] hashMajor) {
-        if (row == board.length) {
-            count++;
+public class Solution3 {
+    public List<List<String>> solveNQueens(int n) {
+        List<List<String>> list=new ArrayList<List<String>>();
+        dfs(new int[n],0,n,list);
+        return list;
+    }
+    public void dfs(int[] pos,int step,int n,List<List<String>> list) {
+        if(step==n) {
+            ArrayList<String> ls=printboard(pos,n);
+            list.add(new ArrayList<String>(ls));
             return;
         }
-        for (int j = 0; j < board.length; j++) {
-            board[row] = j;
-            if (!hashRows[board[row]] && !hashMinor[row + board[row]] && !hashMajor[row - board[row] + board.length - 1]) {
-                hashRows[board[row]] = hashMinor[row + board[row]] = hashMajor[row - board[row] + board.length - 1] = true;
-                search(board, row + 1, hashRows, hashMinor, hashMajor);
-                hashRows[board[row]] = hashMinor[row + board[row]] = hashMajor[row - board[row] + board.length - 1] = false;
+        for(int i=0;i<n;i++) {
+            pos[step]=i;
+            if(isvalid(pos,step)) {
+                dfs(pos,step+1,n,list);
             }
-            board[row] = -1;
         }
+    }
+    public boolean isvalid(int[] pos, int step) {
+        for(int i=0;i<step;i++) {
+            if(pos[i]==pos[step]||(Math.abs(pos[i]-pos[step]))==(step-i)) return false;
+
+        }
+        return true;
+    }
+    public ArrayList<String> printboard(int[] pos,int n) {
+        ArrayList<String> ls=new ArrayList<String>();
+        for(int i=0;i<n;i++) {
+            StringBuilder sb=new StringBuilder();
+            for(int j=0;j<n-1;j++) sb.append('.');
+            sb.insert(pos[i],'Q');
+            ls.add(sb.toString());
+
+        }
+        return ls;
     }
 }
