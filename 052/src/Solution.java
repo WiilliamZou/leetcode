@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by yunxiaozou on 5/5/16.
- */
 public class Solution {
+    public int totalNQueens(int n) {
+        List<List<String>> result = solveNQueens(n);
+        return result.size();
+    }
     public List<List<String>> solveNQueens(int n) {
         ArrayList<List<String>> result = new ArrayList<>();
         dfs(new int[n], 0, result);
@@ -19,7 +20,7 @@ public class Solution {
             for (int move = 0; move < N; move++) {
                 board[i] = move;
                 if (goodMove(board, i)) {
-                   dfs(board, i+1, result);
+                    dfs(board, i+1, result);
                 }
             }
         }
