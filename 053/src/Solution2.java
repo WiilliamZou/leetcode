@@ -15,9 +15,6 @@ public class Solution2 {
                 leftContiguousMax = leftSum;
         }
 
-        if(leftContiguousMax <= 0)
-            return subMax;
-
         int rightContigousMax = nums[mid+1];
         int rightSum = nums[mid+1];
         for(int k=mid+2; k<=j; k++) {
@@ -25,9 +22,6 @@ public class Solution2 {
             if(rightSum > rightContigousMax)
                 rightContigousMax = rightSum;
         }
-
-        if(rightContigousMax <= 0)
-            return subMax;
 
         return Math.max(subMax,leftContiguousMax+rightContigousMax);
     }
