@@ -20,6 +20,7 @@ public class Solution2 {
             Interval current = intervals.get(i);
             if (hold.end >= current.start) {
                 hold.end = Math.max(current.end, hold.end);
+
             } else {
                 ans.add(hold);
                 hold = current;
