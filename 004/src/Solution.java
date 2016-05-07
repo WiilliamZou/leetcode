@@ -12,10 +12,6 @@ public class Solution {
         return (getkth(A, 0, B, 0, l) + getkth(A, 0, B, 0, r)) / 2.0;
     }
 
-    public int getkth(int[] A, int[] B, int k) {
-        return getkth(A, 0, B, 0, k);
-    }
-
     private int getkth(int[] A, int aStart, int[] B, int bStart, int k) {
         if (aStart > A.length - 1) return B[bStart + k - 1];
         if (bStart > B.length - 1) return A[aStart + k - 1];
