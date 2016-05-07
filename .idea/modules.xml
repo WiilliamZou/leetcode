@@ -59,8 +59,10 @@
       <module fileurl="file://$PROJECT_DIR$/054/054.iml" filepath="$PROJECT_DIR$/054/054.iml" />
       <module fileurl="file://$PROJECT_DIR$/055/055.iml" filepath="$PROJECT_DIR$/055/055.iml" />
       <module fileurl="file://$PROJECT_DIR$/056/056.iml" filepath="$PROJECT_DIR$/056/056.iml" />
+      <module fileurl="file://$PROJECT_DIR$/057/057.iml" filepath="$PROJECT_DIR$/057/057.iml" />
       <module fileurl="file://$PROJECT_DIR$/helper/helper.iml" filepath="$PROJECT_DIR$/helper/helper.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcode.iml" filepath="$PROJECT_DIR$/leetcode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/leetcodeInterval/leetcodeInterval.iml" filepath="$PROJECT_DIR$/leetcodeInterval/leetcodeInterval.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcodeList/leetcodeList.iml" filepath="$PROJECT_DIR$/leetcodeList/leetcodeList.iml" />
     </modules>
   </component>
