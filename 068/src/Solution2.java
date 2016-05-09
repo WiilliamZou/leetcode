@@ -13,7 +13,7 @@ public class Solution2 {
                 int count = words[first].length();
                 int next = first + 1;
                 while (next < words.length) {
-                    if (words[next].length() + count + 1 > L) break;
+                    if (count + words[next].length() + 1 > L) break;
                     count += words[next].length() + 1;
                     next++;
                 }
