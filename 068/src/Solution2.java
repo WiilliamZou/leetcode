@@ -5,7 +5,6 @@ import java.util.List;
  * Created by yunxiaozou on 5/9/16.
  */
 public class Solution2 {
-    public class Solution {
         public List<String> fullJustify(String[] words, int L) {
             List<String> lines = new ArrayList<String>();
 
@@ -51,5 +50,5 @@ public class Solution2 {
 
             return lines;
         }
-    }
+
 }
