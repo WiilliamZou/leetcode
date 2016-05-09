@@ -20,7 +20,7 @@ public class Solution2 {
                 }
 
                 StringBuilder builder = new StringBuilder();
-                int diff = last - index - 1; // deduct last space
+                int diff = last - index - 1;
                 // if last line or number of words in the line is 1, left-justified
                 if (last == words.length || diff == 0) {
                     for (int i = index; i < last; i++) {
