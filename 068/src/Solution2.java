@@ -9,6 +9,7 @@ public class Solution2 {
             List<String> lines = new ArrayList<String>();
             int first = 0;
             while (first < words.length) {
+                // count is the space of [word[first], ... ,word[next-1]]
                 int count = words[first].length();
                 int next = first + 1;
                 while (next < words.length) {
