@@ -15,6 +15,7 @@ public class Solution2 {
                 while (next < words.length) {
                     if (count + words[next].length() + 1 > L) break;
                     count += words[next].length() + 1;
+                    //make sure count <= L
                     next++;
                 }
                 StringBuilder builder = new StringBuilder();
