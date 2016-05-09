@@ -20,9 +20,9 @@ public class Solution2 {
                 //index means the first word in current line, next-1 means the last word in current line.
 
                 StringBuilder builder = new StringBuilder();
-                int diff = next - index - 1;
+                int numWords = next - index - 1;
                 // if next line or number of words in the line is 1, left-justified
-                if (next == words.length || diff == 0) {
+                if (next == words.length || numWords == 0) {
                     for (int i = index; i < next; i++) {
                         builder.append(words[i] + " ");
                     }
@@ -32,8 +32,8 @@ public class Solution2 {
                     }
                 } else {
                     // middle justified
-                    int spaces = (L - count) / diff;
-                    int r = (L - count) % diff;
+                    int spaces = (L - count) / numWords;
+                    int r = (L - count) % numWords;
                     for (int i = index; i < next; i++) {
                         builder.append(words[i]);
                         if (i < next - 1) {
