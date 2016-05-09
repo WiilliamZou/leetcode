@@ -1,18 +1,18 @@
 public class Solution {
     public ListNode rotateRight(ListNode head, int k) {
-        if (head == null || head.next == null)
-            return head;
-        if (k < 1) return head;
+        if (head == null) return head;
+        ListNode newHead = head;
         int length = 1;
-        ListNode last = head;
-        while (last.next != null) {
+        while(newHead.next != null) {
             length++;
-            last = last.next;
+            newHead = newHead.next;
         }
-        k  = k % length;
-        k--;
-        ListNode p1 = head;
-        ListNode p2 = head;
-        return null;
+        newHead.next = head;
+        for (int i = length - k%length; i > 1; i--) {
+            head = head.next;
+        }
+        newHead = head.next;
+        head.next = null;
+        return newHead;
     }
 }
