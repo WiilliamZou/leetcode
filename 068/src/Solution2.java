@@ -18,6 +18,7 @@ public class Solution2 {
                     count += words[last].length() + 1;
                     last++;
                 }
+                //index means the first word in current line, last-1 means the last word.
 
                 StringBuilder builder = new StringBuilder();
                 int diff = last - index - 1;
