@@ -5,7 +5,7 @@ public class Solution {
         int i = 0;
         while (i <= right) {
             if (nums[i] == 0) {
-                swap(nums, i, left++);
+                swap(nums, i++, left++);
             } else if (nums[i] == 2){
                 swap(nums, i, right--);
             } else {
