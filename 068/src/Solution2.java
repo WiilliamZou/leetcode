@@ -34,12 +34,12 @@ public class Solution2 {
                     // L - count means extra space
                     // (L - count) / numSlots means extra space per slots.
                     // (L - count) % numSlots means space left.
-                    int spaces = (L - count) / numSlots;
+                    int spacesPerSlot = (L - count) / numSlots;
                     int r = (L - count) % numSlots;
                     for (int i = first; i < next; i++) {
                         builder.append(words[i]);
                         if (i < next - 1) {
-                            for (int j = 0; j <= (spaces + ((i - first) < r ? 1 : 0)); j++) {
+                            for (int j = 0; j <= (spacesPerSlot + ((i - first) < r ? 1 : 0)); j++) {
                                 builder.append(" ");
                             }
                         }

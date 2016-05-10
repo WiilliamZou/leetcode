@@ -17,7 +17,17 @@ public class Solution {
             }
             StringBuilder builder = new StringBuilder();
             int numSlots = next - 1 - first; // numSlots is the number of space slots  - 1.
+            if (next == words.length || numSlots == 0) {
+                for (int i = first; i < next; i++) {
+                    builder.append(words[i] + " ");
+                }
+                builder.deleteCharAt(builder.length()-1);
+                for (int i = builder.length(); i < maxWidth; i++) {
+                    builder.append(" ");
+                }
+            } else {
 
+            }
         }
 
         return lines;
