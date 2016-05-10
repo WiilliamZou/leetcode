@@ -3,6 +3,7 @@
  */
 public class Solution2 {
     public int minDistance(String word1, String word2) {
+        // 利用 DP 的划归思想.
         // dp[i][j] : from word1[0....i] to word2[0....j] 0 <= i <= word1.length, 0 <= j <= word2.length,
         // word1[0...0] and word2[0...0] mean empty strings.
         int dp[][] = new int[word1.length() + 1][word2.length() + 1];
@@ -14,7 +15,7 @@ public class Solution2 {
 
         for (int i = 1;i <= word1.length(); i++) {
             for (int j = 1; j<= word2.length(); j++) {
-                if (word1.charAt(i-1) == word2.charAt(j-1))// <--
+                if (word1.charAt(i-1) == word2.charAt(j-1))//
                     dp[i][j] = dp[i-1][j-1];
                 else
                     // dp[i-1][j-1] : replace word1(i) with word2(j), because word1(0, i-1) == word2(0, j-1);
