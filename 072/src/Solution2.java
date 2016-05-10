@@ -3,10 +3,13 @@
  */
 public class Solution2 {
     public int minDistance(String word1, String word2) {
-        // dp[i][j] : minimum steps to convert i long word1 to j long word2
+        // dp[i][j] : from word1[0....i] to word2[0....j] 0 <= i <= word1.length, 0 <= j <= word2.length,
+        // word1[0...0] and word2[0...0] mean empty strings.
         int dp[][] = new int[word1.length() + 1][word2.length() + 1];
 
+        // from word1[0...i] to empty string
         for (int i = 0; i <= word1.length(); i++) dp[i][0] = i;
+        // from empty string to word2[0...j]
         for (int j = 0; j <= word2.length(); j++) dp[0][j] = j;
 
         for (int i = 1;i <= word1.length(); i++) {
