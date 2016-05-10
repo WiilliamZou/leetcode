@@ -5,7 +5,7 @@ import java.util.*;
  */
 public class Solution3 {
     public String simplifyPath(String path) {
-        Stack<String> stack = new Stack<>();
+        Deque<String> stack = new LinkedList<>();
         Set<String> skip = new HashSet<>(Arrays.asList("..",".",""));
         for (String dir : path.split("/")) {
             if (dir.equals("..") && !stack.isEmpty()) stack.pop();
