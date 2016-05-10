@@ -10,11 +10,7 @@ public class Solution2 {
         }
         HashMap<Character, Integer> map = new HashMap<Character, Integer>();
         for (char c : t.toCharArray()) {
-            if (map.containsKey(c)) {
-                map.put(c, map.get(c) + 1);
-            } else {
-                map.put(c, 1);
-            }
+            map.put(c,map.getOrDefault(c, 0));
         }
         int left = 0;
         int minLeft = 0;
