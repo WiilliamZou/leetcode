@@ -19,9 +19,9 @@ public class Solution2 {
                     next++;
                 }
                 StringBuilder builder = new StringBuilder();
-                int numWords = next - first - 1;
+                int numSlots = next - first - 1;
                 // if next line or number of words in the line is 1, left-justified
-                if (next == words.length || numWords == 0) {
+                if (next == words.length || numSlots == 0) {
                     for (int i = first; i < next; i++) {
                         builder.append(words[i] + " ");
                     }
@@ -32,10 +32,10 @@ public class Solution2 {
                 } else {
                     // middle justified
                     // L - count means extra space
-                    // (L - count) / numWords means extra space per word.
-                    // (L - count) % numWords means space left.
-                    int spaces = (L - count) / numWords;
-                    int r = (L - count) % numWords;
+                    // (L - count) / numSlots means extra space per slots.
+                    // (L - count) % numSlots means space left.
+                    int spaces = (L - count) / numSlots;
+                    int r = (L - count) % numSlots;
                     for (int i = first; i < next; i++) {
                         builder.append(words[i]);
                         if (i < next - 1) {
