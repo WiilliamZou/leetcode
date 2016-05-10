@@ -3,7 +3,7 @@
  */
 public class Solution2 {
     public int minDistance(String word1, String word2) {
-        // dp[i][j] : minimum steps to convert i long word1 and j long word2
+        // dp[i][j] : minimum steps to convert i long word1 to j long word2
         int dp[][] = new int[word1.length() + 1][word2.length() + 1];
 
         for (int i = 0; i <= word1.length(); i++) dp[i][0] = i;
