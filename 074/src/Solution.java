@@ -1,43 +1,17 @@
 public class Solution {
-    public void setZeroes(int[][] matrix) {
-        boolean firstRow = false;
-        boolean firstCol = false;
-        for (int i = 0; i < matrix.length; i++) {
-            if (matrix[i][0] == 0) firstCol = true;
-        }
-        for (int j = 0; j < matrix[0].length; j++) {
-            if (matrix[0][j] == 0) firstRow = true;
-        }
+    public boolean searchMatrix(int[][] matrix, int target) {
+        int M = matrix.length;
+        int N = matrix[0].length;
+        return searchMatrix(matrix, target, 0, M*N-1);
+    }
 
-        for (int i = 1; i < matrix.length; i++) {
-            for (int j = 1; j < matrix[0].length; j++) {
-                if (matrix[i][j] == 0)  matrix[i][0] = matrix[0][j] = 0;
-            }
-        }
-
-        for (int i = 1; i < matrix.length; i++) {
-            if (matrix[i][0] == 0) {
-                for (int j = 1; j < matrix[0].length; j++) {
-                    matrix[i][j] = 0;
-                }
-            }
-        }
-
-        for (int j = 1; j < matrix[0].length; j++) {
-            if (matrix[0][j] == 0) {
-                for (int i = 1; i < matrix.length; i++) {
-                    matrix[i][j] = 0;
-                }
-            }
-        }
-
-        if (firstRow) {
-            for (int j = 0; j < matrix[0].length; j++)
-                matrix[0][j] = 0;
-        }
-        if (firstCol) {
-            for (int i = 0; i < matrix.length; i++)
-                matrix[i][0] = 0;
-        }
+    private boolean searchMatrix(int[][] matrix, int target, int left, int right) {
+        if (left > right) return false;
+        int mid = (left+right)/2;
+        int r = mid / matrix[0].length;
+        int c = mid % matrix[0].length;
+        if (matrix[r][c] == target) return true;
+        else if (matrix[r][c] < target) return searchMatrix(matrix, target, mid+1, right);
+        else return searchMatrix(matrix, target, left, mid-1);
     }
 }
