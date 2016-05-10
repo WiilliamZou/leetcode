@@ -9,7 +9,7 @@ public class Solution2 {
             List<String> lines = new ArrayList<String>();
             int first = 0;
             while (first < words.length) {
-                // count is the space of [word[first], ... ,word[next-1]]
+                // count is the 'necessary'space of [word[first], ... ,word[next-1]]
                 int count = words[first].length();
                 int next = first + 1;
                 while (next < words.length) {
@@ -31,6 +31,9 @@ public class Solution2 {
                     }
                 } else {
                     // middle justified
+                    // L - count means extra space
+                    // (L - count) / numWords means extra space per word.
+                    // (L - count) % numWords means space left.
                     int spaces = (L - count) / numWords;
                     int r = (L - count) % numWords;
                     for (int i = first; i < next; i++) {
