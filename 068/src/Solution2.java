@@ -19,13 +19,13 @@ public class Solution2 {
                     next++;
                 }
                 StringBuilder builder = new StringBuilder();
-                int numSlots = next - first - 1;
+                int numSlots = next - first - 1; //numSlots = numWords-1
                 // if next line or number of words in the line is 1, left-justified
                 if (next == words.length || numSlots == 0) {
                     for (int i = first; i < next; i++) {
                         builder.append(words[i] + " ");
                     }
-                    builder.deleteCharAt(builder.length() - 1);
+                    builder.deleteCharAt(builder.length() - 1); // when numSlots == 0, or numWords == 1.
                     for (int i = builder.length(); i < L; i++) {
                         builder.append(" ");
                     }
