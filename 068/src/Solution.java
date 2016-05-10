@@ -19,15 +19,29 @@ public class Solution {
             int numSlots = next - 1 - first; // numSlots is the number of space slots  - 1.
             if (next == words.length || numSlots == 0) {
                 for (int i = first; i < next; i++) {
-                    builder.append(words[i] + " ");
+                    builder.append(words[i]);
+                    if (i < next-1)
+                        builder.append(" ");
                 }
-                builder.deleteCharAt(builder.length()-1);
+
                 for (int i = builder.length(); i < maxWidth; i++) {
                     builder.append(" ");
                 }
             } else {
-
+                int spacesPerSlot = (maxWidth - count) / numSlots;
+                int remain = (maxWidth - count) % numSlots;
+                for (int i = first; i < next; i++) {
+                    builder.append(words[i]);
+                    if (i < next-1) {
+                        // at least 1 space per slot.
+                        for (int j = 0; j <= (spacesPerSlot + (i-first) < remain ? 1 : 0); j++) {
+                            builder.append(" ");
+                        }
+                    }
+                }
             }
+            lines.add(builder.toString());
+            first = next;
         }
 
         return lines;
