@@ -15,6 +15,7 @@ public class Solution2 {
         int left = 0;
         int minLeft = 0;
         int minLen = s.length() + 1;
+        // count 代表有效字符的长度
         int count = 0;
         for (int right = 0; right < s.length(); right++) {
             if (map.containsKey(s.charAt(right))) {
