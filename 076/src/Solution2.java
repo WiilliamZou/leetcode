@@ -10,7 +10,7 @@ public class Solution2 {
         }
         HashMap<Character, Integer> map = new HashMap<Character, Integer>();
         for (char c : t.toCharArray()) {
-            map.put(c,map.getOrDefault(c, 0) + 1 );
+            map.put(c,map.getOrDefault(c, 0) + 1);
         }
         int left = 0;
         int minLeft = 0;
@@ -23,7 +23,6 @@ public class Solution2 {
                 if (map.get(s.charAt(right)) >= 0) {
                     count++;
                 }
-                //while 是一个有意思的地方
                 while (count == t.length()) {
                     if (right - left + 1 < minLen) {
                         minLeft = left;
