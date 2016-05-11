@@ -19,7 +19,7 @@ public class Solution3 {
             return true;
         }
 
-        if(false || i >= board.length || i < 0
+        if(false || i >= board.length    || i < 0
                  || j >= board[i].length || j < 0
                  || board[i][j] != word.charAt(index)
                  || visited[i][j]){
