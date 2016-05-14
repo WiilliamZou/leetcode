@@ -5,7 +5,7 @@ public class Solution2 {
         if(matrix == null || matrix.length == 0 || matrix[0].length == 0) return 0;
         int[] height = new int[matrix[0].length];
         int result = 0;
-        for(int i = 0; i < matrix.length; i ++){
+        for(int i = 0; i < matrix.length; i++){
             updateHeight(matrix, height, i);
             result = Math.max(result, largestInLine(height));
         }
@@ -14,9 +14,9 @@ public class Solution2 {
     }
 
     private void updateHeight(char[][] matrix, int[] height, int index){
-        for(int i = 0; i < matrix[index].length; i++){
-            if(matrix[index][i] == '1') height[i] += 1;
-            else height[i] = 0;
+        for(int j = 0; j < matrix[index].length; j++){
+            if(matrix[index][j] == '1') height[j] += 1;
+            else height[j] = 0;
         }
     }
 
