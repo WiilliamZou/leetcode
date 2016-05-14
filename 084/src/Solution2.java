@@ -15,7 +15,8 @@ public class Solution2 {
             // the popped bar
             while (!s.isEmpty() && h[i] < h[s.peek()]) {
                 // tricky part is how to handle the index of the left bound
-                max = Math.max(max, h[s.pop()] * (i - (s.isEmpty() ? 0 : s.peek() + 1)));
+                max = Math.max(max,
+                        h[s.pop()] * (i - (s.isEmpty() ? 0 : s.peek() + 1)));
             }
             // put current bar's index to the stack
             s.push(i++);
