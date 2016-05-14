@@ -7,7 +7,6 @@ public class Solution2 {
     public int largestRectangleArea(int[] h) {
         int n = h.length, i = 0, max = 0;
 
-        //需要弄明白 stack 的intuition.
         Stack<Integer> s = new Stack<>();
 
         while (i < n) {
