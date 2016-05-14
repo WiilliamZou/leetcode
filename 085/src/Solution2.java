@@ -6,14 +6,14 @@ public class Solution2 {
         int[] height = new int[matrix[0].length];
         int result = 0;
         for(int i = 0; i < matrix.length; i ++){
-            resetHeight(matrix, height, i);
+            updateHeight(matrix, height, i);
             result = Math.max(result, largestInLine(height));
         }
 
         return result;
     }
 
-    private void resetHeight(char[][] matrix, int[] height, int idx){
+    private void updateHeight(char[][] matrix, int[] height, int idx){
         for(int i = 0; i < matrix[0].length; i ++){
             if(matrix[idx][i] == '1') height[i] += 1;
             else height[i] = 0;
