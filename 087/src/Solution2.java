@@ -9,8 +9,8 @@ public class Solution2 {
                 for(int j = 0; j + l < len; j++) { //start point of current substring at s2.
                     if(l==0) isScr[l][i][j] = s1.charAt(i)==s2.charAt(j);
                     for(int m = 0; m < l; m++) {
-                        if(isScr[m][i][j] && isScr[l-(m+1)][i+m+1][j+m+1]) isScr[l][i][j] = true;
-                        else if(isScr[m][i][j+l-m] && isScr[l-(m+1)][i+m+1][j]) isScr[l][i][j] = true;
+                        if(isScr[m][i][j] && isScr[l-(m+1)][i+(m+1)][j+(m+1)]) isScr[l][i][j] = true;
+                        else if(isScr[m][i][j+l-m] && isScr[l-(m+1)][i+(m+1)][j]) isScr[l][i][j] = true;
                     }
                 }
             }
