@@ -9,13 +9,15 @@
  */
 public class Solution {
     public boolean isValidBST(TreeNode root) {
-        return validateRange(root, Long.MIN_VALUE, Long.MAX_VALUE);
+        return isValidBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    private boolean validateRange(TreeNode root, long min, long max) {
+    private boolean isValidBST(TreeNode root, long minValue, long maxValue) {
         if (root == null) return true;
-        if (!(root.val > min && root.val < max)) return false;
-        return validateRange(root.left, min, (long) root.val)
-                && validateRange(root.right, (long) root.val, max);
+        if (root.val > minValue && root.val < maxValue) {
+            return isValidBST(root.left, minValue, (long)root.val) && isValidBST(root.right, (long)(root.val), maxValue);
+        } else {
+            return false;
+        }
     }
 }
