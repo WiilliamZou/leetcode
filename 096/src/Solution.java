@@ -1,5 +1,6 @@
 public class Solution {
     public int numTrees(int n) {
+        //dp[i] means the number of trees with i nodes.
         int [] dp = new int[n+1];
         dp[0]= 1;
         dp[1] = 1;
