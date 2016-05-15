@@ -11,20 +11,20 @@ public class Solution2 {
         first.val = second.val;
         second.val = temp;
     }
-    public void inOrder(TreeNode root){
-        if(root == null) return;
+    public void inOrder(TreeNode curr){
+        if(curr == null) return;
         //search left tree
-        inOrder(root.left);
+        inOrder(curr.left);
         //in inorder traversal of BST, prev should always have smaller value than current value
-        if(prev != null && prev.val >= root.val){
+        if(prev != null && prev.val >= curr.val){
             //incorrect smaller node is always found as prev node
             if(first == null) first = prev;
-            //incorrect larger node is always found as curr(root) node
-            second = root;
+            //incorrect larger node is always found as curr(curr) node
+            second = curr;
         }
         //update prev node
-        prev = root;
+        prev = curr;
         //search right tree
-        inOrder(root.right);
+        inOrder(curr.right);
     }
 }
