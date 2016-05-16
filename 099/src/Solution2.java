@@ -13,8 +13,8 @@ public class Solution2 {
     }
     public void inOrder(TreeNode curr){
         if(curr == null) return;
-        //search left tree
         inOrder(curr.left);
+
         //in inorder traversal of BST, prev should always have smaller value than current value
         if(prev != null && prev.val >= curr.val){
             //incorrect smaller node is always found as prev node
@@ -24,6 +24,7 @@ public class Solution2 {
         }
         //update prev node
         prev = curr;
+
         //search right tree
         inOrder(curr.right);
     }

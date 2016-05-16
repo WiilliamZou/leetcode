@@ -32,6 +32,8 @@ public class Solution3 {
 
                 //visit curr's right subtree
                 prev = curr;
+
+
                 curr = curr.right;
             }
         }
