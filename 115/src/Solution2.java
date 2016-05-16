@@ -6,18 +6,18 @@ public class Solution2 {
         if (root == null) return;
         flattenTree(root);
     }
-    private TreeNode flattenTree(TreeNode root){
+    private TreeNode flattenTree(TreeNode node){
         // return the last node after recursion
-        TreeNode last = root;
-        TreeNode right = root.right;
-        if (root.left != null){
-            root.right = root.left;
-            last = flattenTree(root.left);
-            root.left = null; // don't forget this
+        TreeNode last = node;
+        TreeNode right = node.right;
+        if (node.left != null){
+            node.right = node.left;
+            last = flattenTree(node.left);
+            node.left = null; // don't forget this
         }
-        if (root.right != null){
+        if (node.right != null){
             last.right = right;
-            last = flattenTree(root.right);
+            last = flattenTree(node.right);
         }
         return last;
     }
