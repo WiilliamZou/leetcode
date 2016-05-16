@@ -17,11 +17,8 @@ public class Solution3 {
             node.left = null;
             if (right != null) {stack.push(right);}
             if (left != null) {stack.push(left);}
-            if (left != null) {
-                node.right = left;
-            } else {
-                node.right = stack.isEmpty()? right: stack.peek();
-            }
+            node.right = stack.isEmpty()? null: stack.peek();
+
         }
     }
 }
