@@ -6,7 +6,7 @@ import java.util.Stack;
 public class Solution3 {
     public void flatten(TreeNode root) {
         // write your code here
-        // 这个算法貌似和preorder traversal 有点相似
+        // 这个算法貌似和preorder traversal 能联系上
         Stack<TreeNode> stack = new Stack<>();
         if (root == null) {return;}
         stack.push(root);
