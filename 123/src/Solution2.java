@@ -3,6 +3,7 @@
  */
 public class Solution2 {
     public int maxProfit(int[] prices) {
+        // the idea of balance
         int sell1 = 0, sell2 = 0, buy1 = Integer.MIN_VALUE, buy2 = Integer.MIN_VALUE;
         for (int i = 0; i < prices.length; i++) {
             buy1 = Math.max(buy1, -prices[i]);
