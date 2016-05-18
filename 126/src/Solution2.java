@@ -17,7 +17,8 @@ public class Solution2 {
     }
 
     // BFS: Trace every node's distance from the start node (level by level).
-    private void bfs(String start, String end, Set<String> dict, HashMap<String, ArrayList<String>> nodeNeighbors, HashMap<String, Integer> distance) {
+    private void bfs(String start, String end, Set<String> dict, HashMap<String, ArrayList<String>> nodeNeighbors,
+                     HashMap<String, Integer> distance) {
         for (String str : dict)
             nodeNeighbors.put(str, new ArrayList<String>());
 
@@ -71,7 +72,8 @@ public class Solution2 {
     }
 
     // DFS: output all paths with the shortest distance.
-    private void dfs(String cur, String end, Set<String> dict, HashMap<String, ArrayList<String>> nodeNeighbors, HashMap<String, Integer> distance, ArrayList<String> solution, List<List<String>> res) {
+    private void dfs(String cur, String end, Set<String> dict, HashMap<String, ArrayList<String>> nodeNeighbors,
+                     HashMap<String, Integer> distance, ArrayList<String> solution, List<List<String>> res) {
         solution.add(cur);
         if (end.equals(cur)) {
             res.add(new ArrayList<String>(solution));
