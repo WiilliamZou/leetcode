@@ -22,14 +22,14 @@ public class Solution2 {
             nodeNeighbors.put(str, new ArrayList<String>());
 
         Queue<String> queue = new LinkedList<String>();
-        queue.offer(start);
+        queue.add(start);
         distance.put(start, 0);
 
         while (!queue.isEmpty()) {
             int count = queue.size();
             boolean foundEnd = false;
             for (int i = 0; i < count; i++) {
-                String cur = queue.poll();
+                String cur = queue.remove();
                 int curDistance = distance.get(cur);
                 ArrayList<String> neighbors = getNeighbors(cur, dict);
 
@@ -40,7 +40,7 @@ public class Solution2 {
                         if (end.equals(neighbor))// Found the shortest path
                             foundEnd = true;
                         else
-                            queue.offer(neighbor);
+                            queue.add(neighbor);
                     }
                 }
             }
