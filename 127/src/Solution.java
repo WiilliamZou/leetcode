@@ -54,7 +54,7 @@ public class Solution {
             unvisited.removeAll(visited);
             visited.clear();
         }
-        return count+1;
+        return count;
     }
 
 
