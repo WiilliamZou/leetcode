@@ -13,17 +13,18 @@ public class Solution3 {
         set1.add(start);
         set2.add(end);
 
-        // we use a map to help construct the final result
-        Map<String, List<String>> map = new HashMap<String, List<String>>();
+        // we use a adjacent to help construct the final result
+        // adjacent neighbors.
+        Map<String, List<String>> adjacent = new HashMap<String, List<String>>();
 
-        // build the map
-        helper(dict, set1, set2, map, false);
+        // build the adjacent
+        helper(dict, set1, set2, adjacent, false);
 
         List<List<String>> res = new ArrayList<List<String>>();
         List<String> sol = new ArrayList<String>(Arrays.asList(start));
 
         // recursively build the final result
-        generateList(start, end, map, sol, res);
+        generateList(start, end, adjacent, sol, res);
 
         return res;
     }
