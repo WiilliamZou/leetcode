@@ -1,5 +1,6 @@
 /**
  * Created by yunxiaozou on 5/18/16.
+ * 这个算法需要改进,bfs forward, dfs backward.
  */
 import java.util.*;
 public class Solution5 {
@@ -26,7 +27,7 @@ public class Solution5 {
         //BFS
         while (!queue.isEmpty()) {
 
-            String word = queue.poll();
+            String word = queue.remove();
             curr--;
             for (int i = 0; i < word.length(); i++){
                 StringBuilder builder = new StringBuilder(word);
