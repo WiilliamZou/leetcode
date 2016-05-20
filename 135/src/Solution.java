@@ -20,6 +20,7 @@ public class Solution {
         {
             if(ratings[i-1]>ratings[i])
             {
+                //preserve the things
                 if(a[i-1]<(a[i]+1))
                 {
                     a[i-1]=a[i]+1;
