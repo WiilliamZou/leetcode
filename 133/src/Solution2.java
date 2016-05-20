@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * Created by yunxiaozou on 5/19/16.
  */
@@ -15,7 +17,7 @@ public class Solution2 {
     }
 
     // BFS
-    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+    public UndirectedGraphNode cloneGraph2(UndirectedGraphNode node) {
         if (node == null) return null;
         Queue<UndirectedGraphNode> q = new LinkedList<UndirectedGraphNode>();
         q.add(node);
