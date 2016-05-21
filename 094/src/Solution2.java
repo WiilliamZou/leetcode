@@ -5,7 +5,10 @@ import java.util.Stack;
 /**
  * Created by yunxiaozou on 5/15/16.
  */
-public class Solution2 {
+public class
+
+
+Solution2 {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new LinkedList<Integer>();
         if (root == null) return res;
