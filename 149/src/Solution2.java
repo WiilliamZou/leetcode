@@ -20,8 +20,8 @@ public class Solution2 {
         int result = 0;
         for(int i = 0; i < points.length; i++){
             HashMap<Double, Integer> hm = new HashMap<Double, Integer>();
-            int samex = 1;
-            int samep = 0;
+            int samex = 1; // same the x axis
+            int samep = 0; // same point
             for(int j = 0; j < points.length; j++){
                 if(j != i){
                     if((points[j].x == points[i].x) && (points[j].y == points[i].y)){
@@ -32,11 +32,7 @@ public class Solution2 {
                         continue;
                     }
                     double k = (double)(points[j].y - points[i].y) / (double)(points[j].x - points[i].x);
-                    if(hm.containsKey(k)){
-                        hm.put(k,hm.get(k) + 1);
-                    }else{
-                        hm.put(k, 2);
-                    }
+                    hm.put(k, hm.getOrDefault(k, 1)+1);
                     result = Math.max(result, hm.get(k) + samep);
                 }
             }
