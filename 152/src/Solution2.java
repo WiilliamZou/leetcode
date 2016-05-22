@@ -4,7 +4,7 @@
 public class Solution2 {
     public int maxProduct(int[] A) {
         int min;
-        int res = A[0], max = min = A[0]; // max, min means max and min product among the subarrays whose last element is A[i].
+        int result = A[0], max = min = A[0]; // max, min means max and min product among the subarrays whose last element is A[i].
         for (int i = 1; i < A.length; i++) {
             if (A[i] > 0) {
                 max = Math.max(max * A[i], A[i]);
@@ -15,8 +15,8 @@ public class Solution2 {
                 max = Math.max(min * A[i], A[i]);
                 min = Math.min(lastMax * A[i], A[i]);
             }
-            res = Math.max(res, max);
+            result = Math.max(result, max);
         }
-        return res;
+        return result;
     }
 }
