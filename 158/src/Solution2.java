@@ -7,6 +7,7 @@ public class Solution2 extends Reader4 {
      * @param n   Maximum number of characters to read
      * @return    The number of characters read
      */
+    // 类似与生产者消费者?
     private int buffPtr = 0;
     private int buffCnt = 0;
     private char[] buff = new char[4];
