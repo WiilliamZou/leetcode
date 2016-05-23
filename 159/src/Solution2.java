@@ -2,6 +2,7 @@ import java.util.HashMap;
 
 public class Solution2 {
     public int lengthOfLongestSubstringTwoDistinct(String s) {
+        // two pointers and map style.
         if(s.length() < 1) return 0;
         HashMap<Character,Integer> map = new HashMap<Character,Integer>();
         int lo = 0;
