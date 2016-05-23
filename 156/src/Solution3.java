@@ -11,7 +11,8 @@ public class Solution3 {
         while(curr != null) {
             next = curr.left;
 
-            // swapping nodes now, need temp to keep the previous right child
+            // swapping nodes now, need temp to
+            // keep the previous right child
             curr.left = temp;
             temp = curr.right;
             curr.right = prev;
