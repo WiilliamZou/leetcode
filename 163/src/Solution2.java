@@ -3,33 +3,38 @@ import java.util.List;
 
 /**
  * Created by yunxiaozou on 5/24/16.
+ *
+ * Given a sorted integer array where the range of elements are [lower, upper] inclusive, return its missing ranges.
+ * For example, given [0, 1, 3, 50, 75], lower = 0 and upper = 99, return ["2", "4->49", "51->74", "76->99"].
  */
 public class Solution2 {
     public List<String> findMissingRanges(int[] a, int lo, int hi) {
         List<String> res = new ArrayList<String>();
 
-        // the next number we need to find
-        int next = lo;
+        // the start number we need to find
+        // what is start mean?
+        // the start of start boundary?
+        int start = lo;
 
         for (int i = 0; i < a.length; i++) {
             // not within the range yet
-            if (a[i] < next) continue;
+            if (a[i] < start) continue;
 
-            // continue to find the next one
-            if (a[i] == next) {
-                next++;
+            // continue to find the start one
+            if (a[i] == start) {
+                start++;
                 continue;
             }
 
             // get the missing range string format
-            res.add(getRange(next, a[i] - 1));
+            res.add(getRange(start, a[i] - 1));
 
-            // now we need to find the next number
-            next = a[i] + 1;
+            // now we need to find the start number
+            start = a[i] + 1;
         }
 
         // do a final check
-        if (next <= hi) res.add(getRange(next, hi));
+        if (start <= hi) res.add(getRange(start, hi));
 
         return res;
     }
