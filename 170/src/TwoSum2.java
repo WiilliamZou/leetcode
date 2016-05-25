@@ -16,6 +16,7 @@ public class TwoSum2 {
     // Add the number to an internal data structure.
     public void add(int number) {
         if(num.contains(number)){
+            //computed before.
             sum.add(number * 2);
         }else{
             Iterator<Integer> iter = num.iterator();
