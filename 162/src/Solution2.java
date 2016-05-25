@@ -7,13 +7,15 @@ public class Solution2 {
         if (N == 1) {
             return 0;
         }
-
+        // invariant: nums[left-1] < nums[left] && num[right] > nums[right+1]
         int left = 0, right = N - 1;
         while (right - left > 1) {
             int mid = left + (right - left) / 2;
             if (nums[mid] < nums[mid + 1]) {
+                // nums[mid+1] can be a peak
                 left = mid + 1;
             } else {
+                // nums[mid] can be a peak
                 right = mid;
             }
         }
