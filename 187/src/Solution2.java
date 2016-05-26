@@ -17,6 +17,7 @@ public class Solution2 {
         Set<String> set = new HashSet<String>();
         int len = s.length();
         for(int i = 0; i <= len - 10; i++){
+            // sub is the string starting from index i.
             String sub = s.substring(i, i + 10);
             if(!set.add(sub)){
                 resset.add(sub);
