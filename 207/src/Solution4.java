@@ -2,17 +2,17 @@ import java.util.ArrayList;
 
 public class Solution4 {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        ArrayList[] graph = new ArrayList[numCourses];
+        ArrayList[] graph = new ArrayList[numCourses]; // 似乎是adjacent list
         for(int i=0;i<numCourses;i++)
             graph[i] = new ArrayList();
 
         boolean[] visited = new boolean[numCourses];
         for(int i=0; i<prerequisites.length;i++){
-            graph[prerequisites[i][1]].add(prerequisites[i][0]);
+            graph[prerequisites[i][1]].add(prerequisites[i][0]); // adjacent list. pre -> ready.
         }
 
         for(int i=0; i<numCourses; i++){
-            if(!dfs(graph,visited,i))
+            if(!dfs(graph,visited,i)) //no cycle
                 return false;
         }
         return true;
