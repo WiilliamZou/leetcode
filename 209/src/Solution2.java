@@ -1,5 +1,6 @@
 public class Solution2 {
     public int minSubArrayLen(int sum, int[] nums) {
+        // java dynamic window problem
         int minlen = Integer.MAX_VALUE;
         int curSum = 0;
         int start = 0;
