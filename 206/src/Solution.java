@@ -8,6 +8,14 @@
  */
 public class Solution {
     public ListNode reverseList(ListNode head) {
-        return null;
+        ListNode dummy = new ListNode(0);
+        ListNode c = head;
+        while (c != null) {
+            ListNode next = c.next;
+            c.next = dummy.next;
+            dummy.next = c;
+            c = next;
+        }
+        return dummy.next;
     }
 }
