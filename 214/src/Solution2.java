@@ -6,6 +6,7 @@ public class Solution2 {
         }
         if (j == s.length()) { return s; }
         String suffix = s.substring(j);
-        return new StringBuffer(suffix).reverse().toString() + shortestPalindrome(s.substring(0, j)) + suffix;
+        return new StringBuffer(suffix).reverse().toString() +
+                shortestPalindrome(s.substring(0, j)) + suffix;
     }
 }
