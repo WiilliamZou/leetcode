@@ -41,7 +41,7 @@ public class Trie2 {
         return true;
     }
 
-    class TrieNode {
+    private class TrieNode {
         public char val;
         public boolean isWord;
         public TrieNode[] children = new TrieNode[26];
