@@ -8,7 +8,7 @@ public class Solution2 {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         for (int num : nums) {
             pq.add(num);
-            if (pq.size() > k) pq.remove();
+            if (pq.size() > k) pq.remove(); // if the size exceeds, remove min element.
         }
         return pq.remove();
     }
