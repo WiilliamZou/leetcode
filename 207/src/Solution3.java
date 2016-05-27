@@ -13,7 +13,8 @@ public class Solution3 {
             int ready = prerequisites[i][0];
             int pre = prerequisites[i][1];
             if (matrix[pre][ready] == 0)
-                indegree[ready]++; //duplicate case
+                indegree[ready]++; //duplicate case 代表 prerequisite 的 情况
+                // indegree[i] == 0 means course i has no prerequisite
             matrix[pre][ready] = 1;
         }
 
@@ -23,9 +24,10 @@ public class Solution3 {
             if (indegree[i] == 0) queue.offer(i);
         }
         while (!queue.isEmpty()) {
-            int course = queue.poll();
+            int course = queue.poll(); // we can take course.
             count++;
             for (int i=0; i<numCourses; i++) {
+                // course can be used for prerequisite.
                 if (matrix[course][i] != 0) {
                     if (--indegree[i] == 0)
                         queue.offer(i);
