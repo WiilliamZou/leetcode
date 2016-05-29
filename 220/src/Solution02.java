@@ -4,7 +4,7 @@ import java.util.TreeSet;
  * Created by yunxiaozou on 5/28/16.
  */
 public class Solution02 {
-    public boolean containsNearybyAlmostDuplicate(int[] nums, int k, int t) {
+    public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
         if (nums == null || nums.length == 0 || k <= 0) {
             return false;
         }
@@ -24,7 +24,5 @@ public class Solution02 {
 
         }
         return false;
-
     }
-
 }
