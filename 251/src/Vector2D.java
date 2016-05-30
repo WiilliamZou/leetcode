@@ -6,16 +6,24 @@ public class Vector2D implements Iterator<Integer> {
     private Iterator<List<Integer>> outerIterator;
     public Vector2D(List<List<Integer>> vec2d) {
         outerIterator = vec2d.iterator();
-        innerIterator = null;
     }
 
     @Override
     public Integer next() {
+        if (hasNext()) {
+            return innerIterator.next();
+        } else {
+            return null;
+        }
     }
 
     @Override
     public boolean hasNext() {
-        return
+        while ((innerIterator == null || !innerIterator.hasNext()) &&
+                outerIterator.hasNext()) {
+            innerIterator  = outerIterator.next().iterator();
+        }
+        return innerIterator != null && innerIterator.hasNext();
     }
 }
 
