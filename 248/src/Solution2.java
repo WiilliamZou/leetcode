@@ -5,7 +5,7 @@ public class Solution2 {
     char[][] pairs = {{'0', '0'}, {'1', '1'}, {'6', '9'}, {'8', '8'}, {'9', '6'}};
     int count = 0;
 
-    public int strobogrammaticInRange(String low, String high) {
+    public int strobogrammaticInRange(String  low, String high) {
         for(int len = low.length(); len <= high.length(); len++) {
             dfs(low, high, new char[len], 0, len - 1);
         }
