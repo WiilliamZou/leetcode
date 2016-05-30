@@ -13,6 +13,7 @@ public class Solution2 {
         int[] r = new int[n-k+1];
         int ri = 0;
         // store index
+        // what is the intuition of queue?
         Deque<Integer> q = new ArrayDeque<>();
         for (int i = 0; i < a.length; i++) {
             // remove numbers out of range k
