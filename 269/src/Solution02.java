@@ -70,11 +70,12 @@ public class Solution02 {
                             List<Character> list = adjList.get(words[i].charAt(k));
                             if (!list.contains(words[j].charAt(k))) {
                                 list.add(words[j].charAt(k));
-                            } else {
-                                List<Character> newList = new ArrayList<>();
-                                newList.add(words[j].charAt(k));
-                                adjList.put(words[i].charAt(k), newList);
                             }
+                        }
+                        else {
+                            List<Character> newList = new ArrayList<>();
+                            newList.add(words[j].charAt(k));
+                            adjList.put(words[i].charAt(k), newList);
                         }
                         break;
                     }

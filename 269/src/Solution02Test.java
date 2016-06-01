@@ -13,7 +13,7 @@ public class Solution02Test {
         input[3] = "ett";
         input[4] = "rftt";
         Solution02 sol = new Solution02();
-        System.out.println(sol);
+        System.out.println(sol.alienOrder(input));
     }
 
 }
