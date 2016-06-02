@@ -43,6 +43,8 @@ public class Solution2 {
 
         inorder(reverse ? root.right : root.left, target, reverse, stack);
         // early terminate, no need to traverse the whole tree
+        // check the current node is good for the requirement.
+        // if current node is not satisfactory, if not, no need to check the other branch.
         if ((reverse && root.val <= target) || (!reverse && root.val > target)) return;
         // track the value of current node
         stack.push(root.val);
