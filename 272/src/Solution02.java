@@ -15,21 +15,24 @@ public class Solution02 {
         inorder(root, target, true, s2);
 
         while (k-- > 0) {
-            if (s1.isEmpty()) {
+            if (s1.isEmpty())
                 res.add(s2.pop());
-            } else if (s2.isEmpty()) {
+            else if (s2.isEmpty())
                 res.add(s1.pop());
-            } else if (Math.abs(s1.peek() - target) < Math.abs(s2.peek()))
+            else if (Math.abs(s1.peek()-target) < Math.abs(s2.peek()-target))
                 res.add(s1.pop());
             else
                 res.add(s2.pop());
+
         }
         return res;
     }
 
     private void inorder(TreeNode root, double target, boolean reverse, Stack<Integer> stack) {
         if (root == null) return;
-        inorder(reverse ? root.right : root.left, target, reverse, stack);
+        inorder(reverse? root.right:root.left, target, reverse, stack);
         if ((reverse && root.val <= target) || (!reverse && root.val > target)) return;
+        stack.add(root.val);
+        inorder(reverse? root.left: root.right, target, reverse, stack);
     }
 }

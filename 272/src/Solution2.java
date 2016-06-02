@@ -37,7 +37,7 @@ public class Solution2 {
 
     // inorder traversal
     // inorder false means the elements greater than target, smaller elements first. like (ceiling?)
-    // inorder true means the elements lesser than target, greater elements first. like (flooring?)
+    // inorder true means the elements lesser than target (or equal), greater elements first. like (flooring?)
     void inorder(TreeNode root, double target, boolean reverse, Stack<Integer> stack) {
         if (root == null) return;
 
