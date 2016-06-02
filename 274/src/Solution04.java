@@ -1,7 +1,7 @@
 /**
  * Created by yunxiaozou on 6/2/16.
  */
-public class Solution04 {
+public class Solution04 „
     public int hIndex(int[] citations) {
         int n = citations.length;
         int[] papers = new int[n+1];
