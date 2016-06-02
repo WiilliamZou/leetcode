@@ -15,8 +15,8 @@ public class Solution2 {
     public List<Integer> closestKValues(TreeNode root, double target, int k) {
         List<Integer> res = new ArrayList<>();
 
-        Stack<Integer> s1 = new Stack<>(); // predecessors
-        Stack<Integer> s2 = new Stack<>(); // successors
+        Stack<Integer> s1 = new Stack<>(); // the elements greater than target, smaller elements first. like (ceiling?)
+        Stack<Integer> s2 = new Stack<>(); // the elements lesser than target, greater elements first. like (flooring?)
 
         inorder(root, target, false, s1);
         inorder(root, target, true, s2);
@@ -36,6 +36,8 @@ public class Solution2 {
     }
 
     // inorder traversal
+    // inorder false means the elements greater than target, smaller elements first. like (ceiling?)
+    // inorder true means the elements lesser than target, greater elements first. like (flooring?)
     void inorder(TreeNode root, double target, boolean reverse, Stack<Integer> stack) {
         if (root == null) return;
 
