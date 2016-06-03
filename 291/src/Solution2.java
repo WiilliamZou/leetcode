@@ -14,8 +14,9 @@ public class Solution2 {
 
     boolean isMatch(String str, int i, String pat, int j, Map<Character, String> map, Set<String> set) {
         // base case
-        if (i == str.length() && j == pat.length()) return true;
-        if (i == str.length() || j == pat.length()) return false;
+        // i is the start point.
+        if (i == str.length() && j == pat.length()) return true;  //finish success
+        if (i == str.length() || j == pat.length()) return false; //incomplete
 
         // get current pattern character
         char c = pat.charAt(j);
