@@ -8,7 +8,9 @@ public class Solution2 {
         helper(rst, "", num, target, 0, 0, 0);
         return rst;
     }
-    public void helper(List<String> rst, String path, String num, int target, int pos, long eval, long multed){
+    public void helper(List<String> rst, String path,
+                       String num, int target, int pos,
+                       long eval, long multed){
         if(pos == num.length()){
             if(target == eval)
                 rst.add(path);
