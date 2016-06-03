@@ -267,7 +267,7 @@
       <module fileurl="file://$PROJECT_DIR$/279/279.iml" filepath="$PROJECT_DIR$/279/279.iml" />
       <module fileurl="file://$PROJECT_DIR$/280/280.iml" filepath="$PROJECT_DIR$/280/280.iml" />
       <module fileurl="file://$PROJECT_DIR$/281/281.iml" filepath="$PROJECT_DIR$/281/281.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Solution/Solution.iml" filepath="$PROJECT_DIR$/Solution/Solution.iml" />
+      <module fileurl="file://$PROJECT_DIR$/282/282.iml" filepath="$PROJECT_DIR$/282/282.iml" />
       <module fileurl="file://$PROJECT_DIR$/helper/helper.iml" filepath="$PROJECT_DIR$/helper/helper.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcode.iml" filepath="$PROJECT_DIR$/leetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcodeGraph/leetcodeGraph.iml" filepath="$PROJECT_DIR$/leetcodeGraph/leetcodeGraph.iml" />
@@ -276,7 +276,6 @@
       <module fileurl="file://$PROJECT_DIR$/leetcodePoint/leetcodePoint.iml" filepath="$PROJECT_DIR$/leetcodePoint/leetcodePoint.iml" />
       <module fileurl="file://$PROJECT_DIR$/leetcodeTree/leetcodeTree.iml" filepath="$PROJECT_DIR$/leetcodeTree/leetcodeTree.iml" />
       <module fileurl="file://$PROJECT_DIR$/test/test.iml" filepath="$PROJECT_DIR$/test/test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/untitled/untitled.iml" filepath="$PROJECT_DIR$/untitled/untitled.iml" />
     </modules>
   </component>
 </project>
