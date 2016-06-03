@@ -29,14 +29,17 @@ public class Solution2 {
                 helper(rst, path + cur, num, target, i + 1, cur, cur);
                 // path + cur , concatenate? that is the explanation?
                 // when i is 0, path is empty. that is the explanation.
-                // when the pos is 0, no pre operand.
+                // when the pos is 0, no pre operand. and the path is empty.
             }
             else{
                 helper(rst, path + "+" + cur, num, target, i + 1, eval + cur , cur);
 
                 helper(rst, path + "-" + cur, num, target, i + 1, eval -cur, -cur);
-
+                // when +-, eval is the previous result. the pre operand makes no sense here. we reset the first operand.
                 helper(rst, path + "*" + cur, num, target, i + 1, eval - multed + multed * cur, multed * cur );
+                // when * , the first operand matters.
+                // eval - multed * multed * cur. -multed means undoing, multed * cur for updating.....
+                // and update multed * cur.
             }
         }
     }
