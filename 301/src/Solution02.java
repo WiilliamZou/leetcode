@@ -21,7 +21,7 @@ public class Solution02 {
                 res.add(s);
                 found = true;
             }
-            if (found) continue;
+            if (found) continue; // will not go further.
 
             for (int i = 0; i < s.length(); i++) {
                 if (s.charAt(i) != '(' && s.charAt(i) != ')') continue;
