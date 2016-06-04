@@ -1,12 +1,12 @@
 /**
  * Created by yunxiaozou on 6/4/16.
  */
-public class Solution2 {
+public class Solution02 {
     public String getHint(String secret, String guess) {
         int bulls = 0;
         int cows = 0;
         int[] numbers = new int[10];
-        for (int i = 0; i<secret.length(); i++) {
+        for (int i = 0; i < secret.length(); i++) {
             int s = Character.getNumericValue(secret.charAt(i));
             int g = Character.getNumericValue(guess.charAt(i));
             if (s == g) bulls++;
