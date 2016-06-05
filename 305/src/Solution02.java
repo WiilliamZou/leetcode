@@ -13,6 +13,7 @@ public class Solution02 {
             int p = islands.add(x, y);
             for (int[] d : dir) {
                 int q = islands.getID(x + d[0], y + d[1]);
+                // q == 0 means not valid or (x+d[0], y+d[1]) is water.
                 if (q > 0 && !islands.find(p, q))
                     islands.unite(p, q);
             }
