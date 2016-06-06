@@ -12,7 +12,7 @@ public class Solution02 {
             adj.get(edge[0]).add(edge[1]);
             adj.get(edge[1]).add(edge[0]);
         }
-        List<Integer> leaves = new ArrayList<>();
+        List<Integer> leaves = new ArrayList<>(); //leaves likes queue.
         for (int i = 0; i < n; i++) {
             if (adj.get(i).size() == 1) leaves.add(i); //in degree is 1.
         }
