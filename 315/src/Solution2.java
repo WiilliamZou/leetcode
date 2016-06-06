@@ -48,10 +48,12 @@ public class Solution2 {
         while(left_index <= mid && right_index <= end){
             // merge sort for [left...mid] [mid...right]
             if(nums[indexes[right_index]] < nums[indexes[left_index]]){
+                // 更新 rightcount;
                 new_indexes[sort_index] = indexes[right_index];
                 rightcount++;
                 right_index++;
             }else{
+                //更新count
                 new_indexes[sort_index] = indexes[left_index];
                 count[indexes[left_index]] += rightcount;
                 left_index++;
@@ -65,6 +67,7 @@ public class Solution2 {
             sort_index++;
         }
         while(right_index <= end){
+            // 这里由于 left 部分已经处理完, 不需要更新 rightcount
             new_indexes[sort_index++] = indexes[right_index++];
         }
         for(int i = start; i <= end; i++){
