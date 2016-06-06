@@ -1,11 +1,13 @@
-public class NumMatrix2 {
-
+/**
+ * Created by yunxiaozou on 6/5/16.
+ */
+public class NumMatrix02 {
     int[][] tree;
     int[][] nums;
     int m;
     int n;
 
-    public NumMatrix2(int[][] matrix) {
+    public NumMatrix02(int[][] matrix) {
         if (matrix.length == 0 || matrix[0].length == 0) return;
         m = matrix.length;
         n = matrix[0].length;
@@ -22,8 +24,8 @@ public class NumMatrix2 {
         if (m == 0 || n == 0) return;
         int delta = val - nums[row][col];
         nums[row][col] = val;
-        for (int i = row + 1; i <= m; i += i & (-i)) {
-            for (int j = col + 1; j <= n; j += j & (-j)) {
+        for (int i = row+1; i <= m; i += i & (-i)) {
+            for (int j = col+1; j <= n; j += j & (-j)) {
                 tree[i][j] += delta;
             }
         }
@@ -45,4 +47,3 @@ public class NumMatrix2 {
         return sum;
     }
 }
-// time should be O(log(m) * log(n))
