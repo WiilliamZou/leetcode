@@ -38,6 +38,8 @@ public class Solution2 {
         int right_index = mid+1;
         int rightcount = 0;
         // rightcount 对应的是哪一个element?
+        // rightcount 用于更新左边的元素的rank
+        // 为什么是基于index 的 sorting?
         int[] new_indexes = new int[end - start + 1];
 
         int sort_index = 0;
