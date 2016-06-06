@@ -24,7 +24,7 @@ public class Solution2 {
     }
     private void mergesort(int[] nums, int[] indexes, int start, int end){
         if(end <= start){
-            return;
+            return; //do nothing.
         }
         int mid = (start + end) / 2;
         mergesort(nums, indexes, start, mid);
@@ -41,6 +41,7 @@ public class Solution2 {
         // rightcount 用于更新左边的元素的rank
         // 为什么是基于index 的 sorting?
         // 原因: 1. 不改变原来的数组, 2. 更新 count 数组方便。
+        // 在merge sort 的同时,通过rightcount, 更新 count[];
         int[] new_indexes = new int[end - start + 1];
 
         int sort_index = 0;
