@@ -37,6 +37,7 @@ public class Solution2 {
         int left_index = start;
         int right_index = mid+1;
         int rightcount = 0;
+        // rightcount 对应的是哪一个element?
         int[] new_indexes = new int[end - start + 1];
 
         int sort_index = 0;
