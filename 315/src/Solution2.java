@@ -40,6 +40,7 @@ public class Solution2 {
         // rightcount 对应的是哪一个element?
         // rightcount 用于更新左边的元素的rank
         // 为什么是基于index 的 sorting?
+        // 原因: 1. 不改变原来的数组, 2. 更新 count 数组方便。
         int[] new_indexes = new int[end - start + 1];
 
         int sort_index = 0;
