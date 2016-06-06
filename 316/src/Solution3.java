@@ -5,8 +5,9 @@ import java.util.Stack;
  */
 public class Solution3 {
     public String removeDuplicateLetters(String sr) {
-
+        //这的确是一个精妙的算法。
         int[] res = new int[26]; //will contain number of occurences of character (i+'a')
+        // res is count[];
         boolean[] visited = new boolean[26]; //will contain if character (i+'a') is present in current result Stack
         char[] ch = sr.toCharArray();
         for(char c: ch){  //count number of occurences of character
