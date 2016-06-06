@@ -5,6 +5,7 @@ public class Solution2 {
         for (int i = 1; i < n; i++) {
             if (i > 1 && num.charAt(0) == '0') break;
             for (int j = i+1; j < n; j++) {
+                // i, j means bound.
                 int first = 0, second = i, third = j;
                 if (num.charAt(second) == '0' && third > second+1) break;
                 while (third < n) {
