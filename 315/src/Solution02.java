@@ -38,7 +38,7 @@ public class Solution02 {
         int[] new_index = new int[end-start+1];
 
         int sort_index = 0;
-        while (left_index <= mid && right_index <=) {
+        while (left_index <= mid && right_index <= end) {
             if (nums[indexes[right_index]] < nums[indexes[left_index]]) {
                 new_index[sort_index] = indexes[right_index];
                 rightcount++;
@@ -47,8 +47,8 @@ public class Solution02 {
                 new_index[sort_index] = indexes[left_index];
                 count[indexes[left_index]] += rightcount;
                 left_index++;
-
             }
+            sort_index++;
         }
         while (left_index <= mid) {
             new_index[sort_index] = indexes[left_index];
@@ -58,7 +58,7 @@ public class Solution02 {
         }
 
         while (right_index <= end) {
-            new_index[sort_index++] = indexes[right_index];
+            new_index[sort_index++] = indexes[right_index++];
         }
 
         for (int i = start; i <= end; i++) {
