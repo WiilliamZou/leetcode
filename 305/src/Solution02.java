@@ -66,8 +66,10 @@ public class Solution02 {
         }
 
         private int root(int i) {
-            for (;i != id[i]; i = id[i])
-                id[i] = id[id[i]]; //path compression
+            while (i != id[i]) {
+                id[i] = id[id[i]];
+                i = id[i];
+            }
             return i;
         }
     }
