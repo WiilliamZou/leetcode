@@ -42,6 +42,7 @@ public class Solution2 {
 
         int sort_index = 0;
         while(left_index <= mid && right_index <= end){
+            // merge sort for [left...mid] [mid...right]
             if(nums[indexes[right_index]] < nums[indexes[left_index]]){
                 new_indexes[sort_index] = indexes[right_index];
                 rightcount++;
