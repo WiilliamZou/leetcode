@@ -6,6 +6,7 @@ public class Solution2 {
             if (i > 1 && num.charAt(0) == '0') break; // leading 0 is not allowed.
             for (int j = i+1; j < n; j++) {
                 // i, j means bound.
+                // when the i, j are chosen, sequence is fixed.
                 int first = 0, second = i, third = j;
                 if (num.charAt(second) == '0' && third > second+1) break;
                 // leading 0 is not allowd.
