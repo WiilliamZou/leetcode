@@ -3,6 +3,7 @@ import java.util.List;
 
 /**
  * Created by yunxiaozou on 6/6/16.
+ * balanced search tree would be a good solution. but long code.
  */
 public class Solution2 {
     int[] count;
@@ -16,6 +17,7 @@ public class Solution2 {
         }
         mergesort(nums, indexes, 0, nums.length - 1);
         for(int i = 0; i < count.length; i++){
+            //count[] is the answer;
             res.add(count[i]);
         }
         return res;
