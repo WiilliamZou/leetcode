@@ -5,6 +5,7 @@ import java.util.*;
  */
 public class Solution02 {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
+        //from edge to center.
         if (n == 1) return Collections.singletonList(0);
         List<Set<Integer>> adj = new ArrayList<>(n);
         for (int i = 0; i < n; i++) adj.add(new HashSet<>());
