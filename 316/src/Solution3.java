@@ -16,6 +16,7 @@ public class Solution3 {
         Stack<Character> st = new Stack<>(); // answer stack
         int index;
         for(char s:ch){
+            //每次处理一个元素,并更新 stack 和 visited. 内容
             index= s-'a';
             res[index]--;   //decrement number of characters remaining in the string to be analysed
             if(visited[index]) //if character is already present in stack, dont bother
