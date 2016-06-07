@@ -69,8 +69,8 @@ public class Solution03 {
                         }
                     }
                 }
-                return count == houseCount; // all the houses must be connected.
             }
         }
+        return count == houseCount;
     }
 }
