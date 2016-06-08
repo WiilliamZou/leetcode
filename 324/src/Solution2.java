@@ -4,6 +4,7 @@ import java.util.PriorityQueue;
  * Created by yunxiaozou on 6/7/16.
  */
 public class Solution2 {
+    // quick select 方式
     public void wiggleSort(int[] nums) {
         int median = findKthLargest(nums, (nums.length + 1) / 2);
         int n = nums.length;
