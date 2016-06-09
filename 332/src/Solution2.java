@@ -6,7 +6,8 @@ import java.util.*;
 public class Solution2 {
     public List<String> findItinerary(String[][] tickets) {
         for (String[] ticket : tickets)
-            targets.computeIfAbsent(ticket[0], k -> new PriorityQueue()).add(ticket[1]);
+            targets.computeIfAbsent(ticket[0],
+                    k -> new PriorityQueue()).add(ticket[1]); //build graph
         visit("JFK");
         return route;
     }
@@ -17,6 +18,6 @@ public class Solution2 {
     void visit(String airport) {
         while(targets.containsKey(airport) && !targets.get(airport).isEmpty())
             visit(targets.get(airport).poll());
-        route.add(0, airport);
+        route.add(0, airport); // order matters.
     }
 }
