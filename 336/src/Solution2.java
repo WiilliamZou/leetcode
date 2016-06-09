@@ -36,6 +36,11 @@ public class Solution2 {
 
     private void addWord(TrieNode root, String word, int index) {
         for (int i = word.length() - 1; i >= 0; i--) {
+            // Here I take another strategy:
+            // add an integer list to each TrieNode;
+            // the list will record the indices of all words satisfying the following two conditions:
+            // each word has a suffix represented by the current Trie node;
+            // the rest of the word forms a palindrome.
             if (root.next[word.charAt(i) - 'a'] == null) {
                 root.next[word.charAt(i) - 'a'] = new TrieNode();
             }
@@ -47,13 +52,14 @@ public class Solution2 {
             root = root.next[word.charAt(i) - 'a'];
         }
 
-        root.list.add(index);
+        root.list.add(index);// empty string is palindrome
         root.index = index;
     }
 
     private void search(String[] words, int i, TrieNode root, List<List<Integer>> list) {
         for (int j = 0; j < words[i].length(); j++) {
             if (root.index >= 0 && root.index != i && isPalindrome(words[i], j, words[i].length() - 1)) {
+                // found the target.
                 list.add(Arrays.asList(i, root.index));
             }
 
