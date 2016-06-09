@@ -1,8 +1,10 @@
-public class Solution2 {
+/**
+ * Created by yunxiaozou on 6/9/16.
+ */
+public class Solution02 {
     public int rob(TreeNode root) {
         int[] num = dfs(root);
         return Math.max(num[0], num[1]);
-        // num[0] get current node, num[1] don't get current node.
     }
     private int[] dfs(TreeNode x) {
         if (x == null) return new int[2];
