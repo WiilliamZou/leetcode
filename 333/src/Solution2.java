@@ -20,7 +20,7 @@ public class Solution2 {
         return max;
     }
 
-    private Result traverse(TreeNode root) {
+    private Result traverse(TreeNode root) { //注意 default value 的设置
         if (root == null) { return new Result(0, Integer.MAX_VALUE, Integer.MIN_VALUE); }
         Result left = traverse(root.left);
         Result right = traverse(root.right);
