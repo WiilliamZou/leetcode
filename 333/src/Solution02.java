@@ -28,6 +28,7 @@ public class Solution02 {
             return new Result(-1, 0, 0);
         }
         int size = left.size + 1 + right.size;
+        max = Math.max(size, max);
         return new Result(size, Math.min(left.lower, node.val), Math.max(right.upper, node.val));
     }
 }
