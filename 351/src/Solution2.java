@@ -7,7 +7,8 @@ public class Solution2 {
         vis[cur] = true;
         int rst = 0;
         for(int i = 1; i <= 9; ++i) {
-            // If vis[i] is not visited and (two numbers are adjacent or skip number is already visited)
+            // If vis[i] is not visited
+            //and (two numbers are adjacent or skip number is already visited)
             if(!vis[i] && (skip[i][cur] == 0 || (vis[skip[i][cur]]))) {
                 rst += DFS(vis, skip, i, remain - 1);
             }
