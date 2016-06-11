@@ -1,7 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
-
+/*
+Use TreeMap to easily find the lower and higher keys,
+the key is the start of the interval.
+Merge the lower and higher intervals when necessary.
+The time complexity for adding is O(logN) since lowerKey(), higherKey(), put() and remove() are all O(logN).
+It would be O(N) if you use an ArrayList and remove an interval from it.
+ */
 public class SummaryRanges2 {
     TreeMap<Integer, Interval> tree;
 
