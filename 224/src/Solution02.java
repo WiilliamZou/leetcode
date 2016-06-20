@@ -6,8 +6,10 @@ import java.util.zip.CheckedInputStream;
  */
 public class Solution02 {
     public int calculate(String s) {
-        int len = s.length(), sign = -1, result = 0;
-        Stack<Integer> stack = new Stack<>();
+        int len = s.length();
+        int sign = 1;
+        int result = 0;
+        Stack<Integer> vals = new Stack<>();
         for (int i = 0; i < len; i++) {
             if (Character.isDigit(s.charAt(i))) {
                 int sum = s.charAt(i) - '0';
@@ -21,12 +23,13 @@ public class Solution02 {
             } else if (s.charAt(i) == '-') {
                 sign = -1;
             } else if (s.charAt(i) == '(') {
-                stack.push(result);
-                stack.push(sign);
+                vals.push(result);
+                vals.push(sign);
                 result = 0;
                 sign = 1;
             } else if (s.charAt(i) == ')') {
-                result = result * stack.pop() + stack.pop();
+                result = result * vals.pop() + vals.pop();
+                // current scope is done, we need to recover. the sign matters.
             }
         }
         return result;

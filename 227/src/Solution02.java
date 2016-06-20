@@ -9,25 +9,25 @@ public class Solution02 {
         if (s == null || (len = s.length()) == 0) return 0;
         Stack<Integer> stack = new Stack<>();
         int num = 0;
-        char sign = '+';
+        char operator = '+';
         for (int i = 0; i < len; i++) {
             if (Character.isDigit(s.charAt(i))) {
                 num = num * 10 + s.charAt(i) - '0';
             }
             if (!Character.isDigit(s.charAt(i)) && s.charAt(i) != ' ' || i == len-1) {
-                if (sign == '-') {
+                if (operator == '-') {
                     stack.push(-num);
                 }
-                if (sign == '+') {
+                if (operator == '+') {
                     stack.push(num);
                 }
-                if (sign == '*') {
+                if (operator == '*') {
                     stack.push(stack.pop() * num);
                 }
-                if (sign == '/') {
+                if (operator == '/') {
                     stack.push(stack.pop() / num);
                 }
-                sign = s.charAt(i);
+                operator = s.charAt(i);
                 num = 0;
             }
         }

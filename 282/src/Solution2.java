@@ -12,34 +12,26 @@ public class Solution2 {
                        String num, int target, int pos,
                        long eval, long multed){
 
-        // what does this parameters means? for example: eval, multed...
-        // path 是加入了运算符的string, 但是num 是原始的 num 的string, 这样貌似。。。
+
         if(pos == num.length()){
             if(target == eval) //这是题目的含义。
                 rst.add(path);
             return;
         }
         for(int i = pos; i < num.length(); i++){
-            if(i != pos && num.charAt(pos) == '0') break; // why this line? 01233432 is not allowed. here .
-            // "105" is not for 1 * 05 like this... maybe like this...
-            // the only number starts with 0 is 0. this is the explanation.
-            long cur = Long.parseLong(num.substring(pos, i + 1)); // cur number? [pos, i] this range.
-            // 解析出来的current number。
+            if(i != pos && num.charAt(pos) == '0') break;
+            // when the start is '0'. only 0
+            long cur = Long.parseLong(num.substring(pos, i + 1)); // current number generated in this dfs step
             if(pos == 0){
-                helper(rst, path + cur, num, target, i + 1, cur, cur);
-                // path + cur , concatenate? that is the explanation?
-                // when i is 0, path is empty. that is the explanation.
-                // when the pos is 0, no pre operand. and the path is empty.
+                helper(rst, path + cur, num, target, i + 1, cur, cur);// when pos == 0, path is empty string.
             }
             else{
                 helper(rst, path + "+" + cur, num, target, i + 1, eval + cur , cur);
 
                 helper(rst, path + "-" + cur, num, target, i + 1, eval -cur, -cur);
-                // when +-, eval is the previous result. the pre operand makes no sense here. we reset the first operand.
+                // when +-, eval is result, the first operand is reset.
                 helper(rst, path + "*" + cur, num, target, i + 1, eval - multed + multed * cur, multed * cur );
-                // when * , the first operand matters.
-                // eval - multed * multed * cur. -multed means undoing, multed * cur for updating.....
-                // and update multed * cur.
+                // when *, we need to reset the previous computation...
             }
         }
     }

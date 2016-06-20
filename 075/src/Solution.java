@@ -5,15 +5,15 @@ public class Solution {
         int i = 0;
         while (i <= right) {
             if (nums[i] == 0) {
-                swap(nums, i++, left++);
+                exch(nums, i++, left++); // guarantee i >= left
             } else if (nums[i] == 2){
-                swap(nums, i, right--);
+                exch(nums, i, right--);
             } else {
                 i++;
             }
         }
     }
-    private void swap (int[] nums, int i, int j) {
+    private void exch(int[] nums, int i, int j) {
         int temp = nums[i];
         nums[i] = nums[j];
         nums[j] = temp;
