@@ -8,7 +8,12 @@ public class Solution {
         for (int i: nums) {
             map.put(i, map.getOrDefault(i,0)+1);
         }
-        PriorityQueue<int[]> queue = new PriorityQueue<>((a, b) -> a[1]-b[1]);
+        PriorityQueue<int[]> queue = new PriorityQueue<>(new Comparator<int[]>() {
+            @Override
+            public int compare(int[] o1, int[] o2) {
+                return o1[1] - o2[1];
+            }
+        });
         for (Integer key: map.keySet()) {
             queue.add(new int[]{key, map.get(key)});
             if (queue.size() > k) {

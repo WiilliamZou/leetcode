@@ -7,7 +7,7 @@ public class Solution3Test {
     @org.junit.Test
     public void simplifyPath() throws Exception {
         Solution3 sol = new Solution3();
-        System.out.println(sol.simplifyPath("abc/..."));
+        System.out.println(sol.simplifyPath("/home/a/b/c/d/../e"));
     }
 
 }

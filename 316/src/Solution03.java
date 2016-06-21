@@ -6,7 +6,7 @@ import java.util.Stack;
 public class Solution03 {
     public String removeDuplicateLetters(String sr) {
         int[] res = new int[26];
-        boolean[] visited = new boolean[26];
+        boolean[] chosen = new boolean[26];
         char[] ch = sr.toCharArray();
         for (char c: ch) {
             res[c-'a']++;
@@ -16,13 +16,13 @@ public class Solution03 {
         for (char s:ch) {
             index = s-'a';
             res[index]--;
-            if(visited[index])
+            if(chosen[index])
                 continue;
             while (!st.isEmpty() && s < st.peek() && res[st.peek()-'a'] != 0) {
-                visited[st.pop()-'a'] = false;
+                chosen[st.pop()-'a'] = false;
             }
             st.push(s);
-            visited[index] = true;
+            chosen[index] = true;
         }
         StringBuilder sb = new StringBuilder();
         while (!st.isEmpty()) {
