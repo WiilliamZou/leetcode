@@ -10,14 +10,14 @@ public class Solution {
                 return true;
             }
             int newBoundary = boundary;
-            for (int i = start + 1; i <= boundary; i++) {
+            for (int i = start; i <= boundary; i++) {
                 if (newBoundary < i + nums[i])
                     newBoundary = i+nums[i];
             }
 
             if (newBoundary == boundary)
                 return false;
-            start = boundary;
+            start = boundary+1;
             boundary = newBoundary;
         }
     }

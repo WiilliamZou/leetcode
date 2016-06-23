@@ -15,32 +15,26 @@ public class Solution {
     int leftPoint = -1;
     int rightPoint = -1;
     public int[] searchRange(int[] nums, int target) {
-        searchLeft(nums, target, 0, nums.length-1);
-        searchRight(nums, target, 0, nums.length-1);
+        search(nums, target, 0, nums.length-1, true);
+        search(nums, target, 0, nums.length-1, false);
         return new int[]{leftPoint, rightPoint};
     }
-    public void searchLeft(int[] nums, int target, int left, int right) {
+
+    public void search(int[] nums, int target, int left, int right, boolean direction) {
         if (left > right) return;
-        int mid = (left + right) /2;
-        if (nums[mid]== target) {
-            leftPoint = mid;
-            searchLeft(nums, target, left, mid-1);
-        } else if (nums[mid] > target) {
-            searchLeft(nums, target, left, mid-1);
-        } else {
-            searchLeft(nums, target, mid+1, right);
-        }
-    }
-    public void searchRight(int[] nums, int target, int left, int right) {
-        if (left > right) return;
-        int mid = (left + right) /2;
+        int mid = left + (right-left)/2;
         if (nums[mid] == target) {
-            rightPoint = mid;
-            searchRight(nums, target, mid+1, right);
+            if (direction) {
+                leftPoint = mid;
+                search(nums, target, left, mid-1, direction);
+            } else {
+                rightPoint = mid;
+                search(nums, target, mid+1, right, direction);
+            }
         } else if (nums[mid] > target) {
-            searchRight(nums, target, left, mid-1);
+            search(nums, target, left, mid-1, direction);
         } else {
-            searchRight(nums, target, mid+1, right);
+            search(nums, target, mid+1, right, direction);
         }
     }
 }
