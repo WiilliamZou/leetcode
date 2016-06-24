@@ -11,7 +11,7 @@ public class Solution2 {
         ArrayList<String> solution = new ArrayList<String>();
 
         dict.add(end);
-        bfs(start, end, dict, nodeNeighbors, distance);
+        bfs(start, end, dict, nodeNeighbors, distance); // find distance
         dfs(start, end, dict, nodeNeighbors, distance, solution, res);
         return res;
     }
@@ -36,10 +36,11 @@ public class Solution2 {
 
                 for (String neighbor : neighbors) {
                     nodeNeighbors.get(cur).add(neighbor);
-                    if (!distance.containsKey(neighbor)) {// Check if visited
+                    if (!distance.containsKey(neighbor)) {// Check if visited distance works like visited boolean.
                         distance.put(neighbor, curDistance + 1);
-                        if (end.equals(neighbor))// Found the shortest path
+                        if (end.equals(neighbor)) {// Found the shortest path
                             foundEnd = true;
+                        }
                         else
                             queue.add(neighbor);
                     }
