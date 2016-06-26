@@ -1,6 +1,6 @@
-import org.testng.annotations.Test;
+import org.junit.Test;
 
-import static junit.framework.Assert.*;
+import static org.junit.Assert.*;
 
 /**
  * Created by yunxiaozou on 4/12/16.
@@ -12,5 +12,7 @@ public class SolutionTest {
         assertEquals(3, sol.lengthOfLongestSubstring("abcabcbb"));
         assertEquals(1, sol.lengthOfLongestSubstring("bbbbb"));
     }
+
+
 
 }

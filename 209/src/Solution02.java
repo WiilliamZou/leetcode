@@ -8,18 +8,8 @@ public class Solution02 {
         int start = 0;
         int end = 0;
 
-        while (start < nums.length) {
-            if (curSum < sum && end < nums.length) {
-                curSum += nums[end];
-                end++;
-            }
-            else if (curSum >= sum) {
-                minLen = Math.min(minLen, end-start);
-                curSum -= nums[start];
-                start++;
-            } else {
-                break;
-            }
+        while (start < nums.length && end < nums.length) {
+
         }
         return (minLen == Integer.MAX_VALUE) ? 0: minLen;
     }
