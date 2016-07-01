@@ -3,22 +3,24 @@ public class Solution2 {
         if (head == null)
             return head;
 
-        ListNode copyHead = head;
+        ListNode newHead = head;
 
         int len = 1;
-        while (copyHead.next != null) {
-            copyHead = copyHead.next;
+        while (newHead.next != null) {
+            newHead = newHead.next;
             len++;
         }
 
-        copyHead.next = head;
-
-        for (int i = len - k % len; i > 1; i--)
+        newHead.next = head;
+        for (int i = 1; i < len- k%len; i++) {
             head = head.next;
+        }
+        //for (int i = len - k % len; i > 1; i--)
+        //  head = head.next;
 
-        copyHead = head.next;
+        newHead = head.next;
         head.next = null;
 
-        return copyHead;
+        return newHead;
     }
 }

@@ -20,30 +20,32 @@ public class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
         if (k <= 1) return head;
 
-        ListNode fakeHead = new ListNode(0);
-        ListNode prev = fakeHead;
+        ListNode dummy = new ListNode(0);
+        ListNode curr = head;
+        ListNode prev = dummy;
         ListNode end;
-        fakeHead.next = head;
+        ListNode next;
+        dummy.next = curr;
         while (true) {
             int count = k;
-            end = head;
+            end = curr;
             while (count != 1 && end != null) {
                 count--;
                 end = end.next;
             }
             if (end == null) {
-                return fakeHead.next;
+                return dummy.next;
             }
 
             while (prev.next != end) {
-                ListNode next = head.next;
-                head.next = next.next;
+                next = curr.next;
+                curr.next = next.next;
                 next.next = prev.next;
                 prev.next = next;
             }
 
-            prev = head;
-            head = head.next;
+            prev = curr;
+            curr = curr.next;
         }
     }
 }

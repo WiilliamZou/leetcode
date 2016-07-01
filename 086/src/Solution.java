@@ -3,24 +3,24 @@
  */
 public class Solution {
     public ListNode partition(ListNode head, int x) {
-        ListNode fakeHead = new ListNode(0);
-        fakeHead.next = head;
-        ListNode lessHead = new ListNode(0);
-        ListNode lessP = lessHead;
-        ListNode p = fakeHead;
-        while (p.next != null) {
-            ListNode next = p.next;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode dummy2 = new ListNode(0);
+        ListNode curr2 = dummy2;
+        ListNode curr = dummy;
+        while (curr.next != null) { //use curr as prev.
+            ListNode next = curr.next;
             if (next.val < x) {
-                p.next = next.next;
-                lessP.next = next;
+                curr.next = next.next;
+                curr2.next = next;
                 next.next = null;
-                lessP = lessP.next;
+                curr2 = curr2.next;
             } else {
-                p = p.next;
+                curr = curr.next;
             }
         }
-        lessP.next = fakeHead.next;
-        return lessHead.next;
+        curr2.next = dummy.next;
+        return dummy2.next;
 
     }
 }
