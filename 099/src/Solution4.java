@@ -15,11 +15,6 @@ public class Solution4 {
 
         while(curr != null){
             //for each node, we compare it with prev node as we did in in-order-traversal
-            if(prev != null && curr.val <= prev.val){
-                if(first == null) first = prev;
-                second = curr;
-            }
-
             if(curr.left != null){
                 //got left tree, then let's locate its rightmost node in left tree
                 pred = curr.left;
@@ -32,7 +27,12 @@ public class Solution4 {
                     //if this left tree has been visited before, then we are done with it
                     //cut the connection with currNode and start visit curr's right tree
                     pred.right = null;
-                    prev = curr;
+                    if(prev != null && curr.val <= prev.val){
+                        if(first == null) first = prev;
+                        second = curr;
+
+                    }
+                    prev = curr; //traverse this point.
                     curr = curr.right;
                 }else{
                     //if this left tree has not been visited before, then we create a back edge from rightmost node
@@ -43,6 +43,11 @@ public class Solution4 {
 
             }else{
                 //no left tree, then just visit its right tree
+                if(prev != null && curr.val <= prev.val){
+                    if(first == null) first = prev;
+                    second = curr;
+
+                }
                 prev = curr;
                 curr = curr.right;
             }
