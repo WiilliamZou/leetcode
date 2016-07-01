@@ -9,8 +9,8 @@
 public class Solution {
     public ListNode swapPairs(ListNode curr) {
         if (curr == null || curr.next == null) return curr;
-        ListNode fakeHead = new ListNode(0);
-        ListNode prev = fakeHead;
+        ListNode dummy = new ListNode(0);
+        ListNode prev = dummy;
         while (curr != null && curr.next != null) {
             prev.next = curr.next;
             curr.next = curr.next.next;
@@ -18,7 +18,7 @@ public class Solution {
             prev = curr;
             curr = curr.next;
         }
-        return fakeHead.next;
+        return dummy.next;
 
     }
 }
