@@ -5,14 +5,15 @@ import java.util.Arrays;
  */
 public class Solution02 {
     public int lengthOfLIS(int[] nums) {
-        int[] dp = new int[nums.length];
+        int[] temp = new int[nums.length];
         int len = 0;
         for (int x : nums) {
-            int i  = Arrays.binarySearch(dp, 0, len, x);
+            int i  = Arrays.binarySearch(temp, 0, len, x);
             if (i < 0) i = -(i+1);
-            dp[i] = x;
+            temp[i] = x;
             if (i == len) len++;
         }
+        System.out.println(Arrays.toString(temp));
         return len;
     }
 }
