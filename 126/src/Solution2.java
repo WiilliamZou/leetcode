@@ -6,21 +6,21 @@ import java.util.*;
 public class Solution2 {
     public List<List<String>> findLadders(String start, String end, Set<String> dict) {
         List<List<String>> res = new ArrayList<List<String>>();
-        HashMap<String, ArrayList<String>> nodeNeighbors = new HashMap<String, ArrayList<String>>();// Neighbors for every node
+        HashMap<String, ArrayList<String>> adj = new HashMap<String, ArrayList<String>>();// Neighbors for every node
         HashMap<String, Integer> distance = new HashMap<String, Integer>();// Distance of every node from the start node
         ArrayList<String> solution = new ArrayList<String>();
 
         dict.add(end);
-        bfs(start, end, dict, nodeNeighbors, distance); // find distance
-        dfs(start, end, dict, nodeNeighbors, distance, solution, res);
+        bfs(start, end, dict, adj, distance); // find distance
+        dfs(start, end, dict, adj, distance, solution, res);
         return res;
     }
 
     // BFS: Trace every node's distance from the start node (level by level).
-    private void bfs(String start, String end, Set<String> dict, HashMap<String, ArrayList<String>> nodeNeighbors,
+    private void bfs(String start, String end, Set<String> dict, HashMap<String, ArrayList<String>> adj,
                      HashMap<String, Integer> distance) {
         for (String str : dict)
-            nodeNeighbors.put(str, new ArrayList<String>());
+            adj.put(str, new ArrayList<String>());
 
         Queue<String> queue = new LinkedList<String>();
         queue.add(start);
@@ -35,7 +35,7 @@ public class Solution2 {
                 ArrayList<String> neighbors = getNeighbors(cur, dict);
 
                 for (String neighbor : neighbors) {
-                    nodeNeighbors.get(cur).add(neighbor);
+                    adj.get(cur).add(neighbor);
                     if (!distance.containsKey(neighbor)) {// Check if visited distance works like visited boolean.
                         distance.put(neighbor, curDistance + 1);
                         if (end.equals(neighbor)) {// Found the shortest path

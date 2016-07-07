@@ -15,26 +15,24 @@ public class Solution {
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) return result;
         List<Integer> curr = new ArrayList<>();
-        dfsTraverse(root, sum, result, curr);
+        traverse(root, sum, result, curr);
         return result;
     }
 
-    private void dfsTraverse(TreeNode node, int sum, List<List<Integer>> result, List<Integer> curr) {
-        if (node == null && sum == 0) {result.add(new ArrayList<>(curr)); return;}
+    private void traverse(TreeNode node, int sum, List<List<Integer>> result, List<Integer> curr) {
         if (node == null) {return;}
-        if (node.left == null) {
-            curr.add(node.val);
-            dfsTraverse(node.right, sum-node.val, result, curr);
-            curr.remove(curr.size()-1);
-        } else if (node.right == null) {
-            curr.add(node.val);
-            dfsTraverse(node.left, sum-node.val, result, curr);
-            curr.remove(curr.size()-1);
+        sum -= node.val;
+        curr.add(node.val);
+        if (node.left == null && node.right == null && sum == 0) {
+            result.add(new ArrayList<>(curr));
         } else {
-            curr.add(node.val);
-            dfsTraverse(node.left, sum-node.val, result, curr);
-            dfsTraverse(node.right, sum-node.val, result, curr);
-            curr.remove(curr.size()-1);
+            if (node.left != null) {
+                traverse(node.left, sum, result, curr);
+            }
+            if (node.right != null) {
+                traverse(node.right, sum, result, curr);
+            }
         }
+        curr.remove(curr.size()-1);
     }
 }

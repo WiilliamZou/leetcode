@@ -4,7 +4,7 @@
 public class Solution2 {
     public void connect(TreeLinkNode root) {
         for (TreeLinkNode head = root; head != null; ) {
-            TreeLinkNode nextFakeHead = new TreeLinkNode(0), nextNode = nextFakeHead;
+            TreeLinkNode nextDummy = new TreeLinkNode(0), nextNode = nextDummy;
             for (TreeLinkNode node = head; node != null; node = node.next) {
                 if (node.left != null) {
                     nextNode.next = node.left;
@@ -15,7 +15,7 @@ public class Solution2 {
                     nextNode = node.right;
                 }
             }
-            head = nextFakeHead.next;
+
         }
     }
 }
